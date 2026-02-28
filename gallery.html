@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery & Animasi Ramadhan | Page Ramadhan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles for gallery page */
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+        .back-nav:hover {
+            opacity: 1;
+        }
+        
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(135deg, #065f46 0%, #047857 50%, #065f46 100%);
+        }
+        
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        
+        .moon {
+            position: absolute;
+            font-size: 4rem;
+            color: #fef9c3;
+            animation: glow 4s infinite ease-in-out;
+        }
+        
+        .lantern {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: swing 5s infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 10px #fef9c3); }
+            50% { opacity: 1; filter: drop-shadow(0 0 25px #fef9c3); }
+        }
+        
+        @keyframes swing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .gallery-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .gallery-card:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-card:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-card:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-card:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-card:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-icon {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        .gallery-card:nth-child(1) .gallery-icon { background: linear-gradient(135deg, #fef9c3, #fde047); }
+        .gallery-card:nth-child(2) .gallery-icon { background: linear-gradient(135deg, #dcfce7, #86efac); }
+        .gallery-card:nth-child(3) .gallery-icon { background: linear-gradient(135deg, #ffedd5, #fdba74); }
+        .gallery-card:nth-child(4) .gallery-icon { background: linear-gradient(135deg, #e0e7ff, #818cf8); }
+        .gallery-card:nth-child(5) .gallery-icon { background: linear-gradient(135deg, #fce7f3, #f9a8d4); }
+        .gallery-card:nth-child(6) .gallery-icon { background: linear-gradient(135deg, #ccfbf1, #5eead4); }
+        
+        .gallery-content {
+            padding: 24px;
+        }
+        
+        .gallery-content h3 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        
+        .gallery-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        /* Floating Animation Cards */
+        .floating-section {
+            margin-top: 50px;
+        }
+        
+        .floating-title {
+            font-size: 1.5rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .floating-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .floating-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .floating-card:nth-child(2) { animation-delay: -1s; }
+        .floating-card:nth-child(3) { animation-delay: -2s; }
+        .floating-card:nth-child(4) { animation-delay: -3s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .floating-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .floating-card:nth-child(1) i { color: var(--gold); }
+        .floating-card:nth-child(2) i { color: var(--primary-green); }
+        .floating-card:nth-child(3) i { color: #8b5cf6; }
+        .floating-card:nth-child(4) i { color: #ec4899; }
+        
+        .floating-card h4 {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        
+        .floating-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        /* Highlight text */
+        .highlight-text {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .highlight-text h2 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+            font-family: 'Amiri', serif;
+        }
+        
+        .highlight-text p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        @media (max-width: 640px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .floating-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .floating-card {
+                width: 100%;
+                max-width: 280px;
+            }
+            .highlight-text h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animated-bg" id="animatedBg"></div>
+
+    <header class="main-header" style="position: relative; z-index: 1;">
+        <a href="index.html" class="back-nav">
+            <i class="fas fa-arrow-left"></i> Kembali
+        </a>
+        <div class="header-decoration">
+            <i class="fas fa-images"></i>
+        </div>
+        <h1>Gallery Ramadhan</h1>
+        <p>Visual dan momen spesial bulan penuh berkah</p>
+    </header>
+
+    <main class="container" style="position: relative; z-index: 1;">
+        
+        <!-- Animated Background Info -->
+        <div class="highlight-text">
+            <h2>✨ Selamat Datang di Bulan Ramadhan ✨</h2>
+            <p>Bulan yang penuh rahmat, maghfirah, dan keberkahan</p>
+        </div>
+
+        <!-- Gallery Cards -->
+        <section class="gallery-grid">
+            <article class="gallery-card">
+                <div class="gallery-icon">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <div class="gallery-content">
+                    <h3>Masjid yang Berbeda</h3>
+                    <p>Suasana Masjidil Haram dan Masjid Nabawi yang megah selalu menjadi tujuan utama umat Islam.</p>
+                </div>
+            </article>
+            
+            <article class="gallery-card">
+                <div class="gallery-icon">
+                    <i class="fas fa lantern"></i>
+                </div>
+                <div class="gallery-content">
+                    <h3>Lampu Ramadan</h3>
+                    <p>Hiasan lampu colorful yang mempercantik jalanan dan masjid di bulan Ramadhan.</p>
+                </div>
+            </article>
+            
+            <article class="gallery-card">
+                <div class="gallery-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="gallery-content">
+                    <h3>Persiapan Berbuka</h3>
+                    <p>Moment bersiap menikmati hidangan berbuka puasa bersama keluarga.</p>
+                </div>
+            </article>
+            
+            <article class="gallery-card">
+                <div class="gallery-icon">
+                    <i class="fas fa-book-quran"></i>
+                </div>
+                <div class="gallery-content">
+                    <h3>Pengajian & Tadarus</h3>
+                    <p> Membaca Al-Quran bersama di bulan yang paling istimewa.</p>
+                </div>
+            </article>
+            
+            <article class="gallery-card">
+                <div class="gallery-icon">
+                    <i class="fas fa-hands-holding-heart"></i>
+                </div>
+                <div class="gallery-content">
+                    <h3>Sedekah & Berbagi</h3>
+                    <p>Semangat berbagi kepada yang membutuhkan semakin tinggi di bulan Ramadhan.</p>
+                </div>
+            </article>
+            
+            <article class="gallery-card">
+                <div class="gallery-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="gallery-content">
+                    <h3>Sholat Tarawih</h3>
+                    <p>Sholat sunnah tarawih yang dilakukan bersama di malam-malam Ramadhan.</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- Floating Cards -->
+        <section class="floating-section">
+            <h2 class="floating-title">Amalan di Bulan Ramadhan</h2>
+            <div class="floating-cards">
+                <div class="floating-card">
+                    <i class="fas fa-moon"></i>
+                    <h4>Puasa Sunnah</h4>
+                    <p>Shaum Dawud</p>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-pray"></i>
+                    <h4>Sholat Tarawih</h4>
+                    <p>20 Rakaat</p>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-star"></i>
+                    <h4>Lailatul Qadar</h4>
+                    <p>Malam Kemuliaan</p>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-heart"></i>
+                    <h4>I'tikaf</h4>
+                    <p>Berzikir di Masjid</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer" style="position: relative; z-index: 1; background: rgba(255,255,255,0.9);">
+        <div class="footer-decoration">
+            <i class="fas fa-star-and-crescent"></i>
+        </div>
+        <p>&copy; 2026 Page Ramadhan - Gallery & Animasi</p>
+    </footer>
+
+    <script>
+        // Generate animated background
+        const bg = document.getElementById('animatedBg');
+        
+        // Create stars
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.opacity = Math.random() * 0.5 + 0.3;
+            bg.appendChild(star);
+        }
+        
+        // Create moon
+        const moon = document.createElement('div');
+        moon.className = 'moon';
+        moon.innerHTML = '<i class="fas fa-moon"></i>';
+        moon.style.right = '10%';
+        moon.style.top = '10%';
+        bg.appendChild(moon);
+        
+        // Create lanterns
+        for (let i = 0; i < 5; i++) {
+            const lantern = document.createElement('div');
+            lantern.className = 'lantern';
+            lantern.innerHTML = '<i class="fas fa-fan"></i>';
+            lantern.style.left = (10 + i * 20) + '%';
+            lantern.style.top = '60%';
+            lantern.style.color = ['#fef9c3', '#fde047', '#fbbf24', '#f59e0b', '#d97706'][i];
+            lantern.style.animationDelay = (i * 0.5) + 's';
+            bg.appendChild(lantern);
+        }
+    </script>
+
+</body>
+</html>
