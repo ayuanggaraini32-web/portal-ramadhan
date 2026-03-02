@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dzikir & Quote Ramadhan | Page Ramadhan</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Additional styles for dzikir page */
@@ -20,10 +22,11 @@
             opacity: 0.9;
             transition: opacity 0.2s;
         }
+
         .back-nav:hover {
             opacity: 1;
         }
-        
+
         .quote-card {
             background: linear-gradient(135deg, #fef9e7 0%, #fde8d0 100%);
             border-radius: 20px;
@@ -34,7 +37,7 @@
             box-shadow: var(--shadow-md);
             animation: fadeIn 0.8s ease;
         }
-        
+
         .quote-card::before {
             content: '"';
             font-size: 8rem;
@@ -46,7 +49,7 @@
             left: 20px;
             line-height: 1;
         }
-        
+
         .quote-text {
             font-size: 1.4rem;
             font-style: italic;
@@ -55,18 +58,18 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .quote-source {
             margin-top: 20px;
             font-size: 0.95rem;
             color: var(--amber);
             font-weight: 600;
         }
-        
+
         .dzikir-section {
             margin-top: 50px;
         }
-        
+
         .dzikir-type {
             background: var(--bg-card);
             border-radius: 16px;
@@ -74,7 +77,7 @@
             margin-bottom: 30px;
             box-shadow: var(--shadow-sm);
         }
-        
+
         .dzikir-type h3 {
             display: flex;
             align-items: center;
@@ -83,11 +86,11 @@
             color: var(--primary-green);
             margin-bottom: 20px;
         }
-        
+
         .dzikir-list {
             list-style: none;
         }
-        
+
         .dzikir-item {
             display: flex;
             gap: 20px;
@@ -95,11 +98,11 @@
             border-bottom: 1px solid #e5e7eb;
             align-items: flex-start;
         }
-        
+
         .dzikir-item:last-child {
             border-bottom: none;
         }
-        
+
         .dzikir-count {
             background: var(--primary-green);
             color: white;
@@ -113,11 +116,11 @@
             font-size: 0.9rem;
             flex-shrink: 0;
         }
-        
+
         .dzikir-content {
             flex: 1;
         }
-        
+
         .dzikir-arabic {
             font-family: 'Amiri', serif;
             font-size: 1.4rem;
@@ -126,37 +129,47 @@
             color: #0f172a;
             margin-bottom: 8px;
         }
-        
+
         .dzikir-latin {
             font-size: 0.9rem;
             color: var(--text-medium);
             font-style: italic;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .pagi-siang {
             animation: fadeIn 0.8s ease 0.2s both;
         }
-        
+
         .sore {
             animation: fadeIn 0.8s ease 0.4s both;
         }
-        
+
         @media (max-width: 640px) {
             .quote-card {
                 padding: 30px 20px;
             }
+
             .quote-card::before {
                 font-size: 5rem;
                 left: 10px;
             }
+
             .quote-text {
                 font-size: 1.1rem;
             }
+
             .dzikir-item {
                 flex-direction: column;
                 gap: 10px;
@@ -164,11 +177,12 @@
         }
     </style>
 </head>
+
 <body>
 
     <header class="main-header">
-        <a href="index.html" class="back-nav">
-            <i class="fas fa-arrow-left"></i> Kembali
+        <a href="../index.html" class="back-portal">
+            <i class="fas fa-arrow-left"></i> Kembali ke Portal
         </a>
         <div class="header-decoration">
             <i class="fas fa-pray"></i>
@@ -178,20 +192,23 @@
     </header>
 
     <main class="container">
-        
+
         <!-- Quote Section -->
         <section class="quote-card">
-            <p class="quote-text">"Barangsiapa yang Allah kehendaki baik, maka Allah akan mengujinya dengan kesabaran."</p>
+            <p class="quote-text">"Barangsiapa yang Allah kehendaki baik, maka Allah akan mengujinya dengan kesabaran."
+            </p>
             <p class="quote-source">- HR. Bukhari</p>
         </section>
-        
+
         <section class="quote-card" style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);">
-            <p class="quote-text">"Puasa itu bukan hanya menahan lapar dan dahaga, tetapi juga menahan anggota badan lainnya dari dosa."</p>
+            <p class="quote-text">"Puasa itu bukan hanya menahan lapar dan dahaga, tetapi juga menahan anggota badan
+                lainnya dari dosa."</p>
             <p class="quote-source">- HR. Bukhari & Muslim</p>
         </section>
-        
+
         <section class="quote-card" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
-            <p class="quote-text">"Sesungguhnya Allah Subhanahu wa Ta'ala berfirman: 'Setiap amal anak Adam adalah untuknya, kecuali puasa. Sesungguhnya ia adalah untuk-Ku dan Aku yang akan membalasnya.'" </p>
+            <p class="quote-text">"Sesungguhnya Allah Subhanahu wa Ta'ala berfirman: 'Setiap amal anak Adam adalah
+                untuknya, kecuali puasa. Sesungguhnya ia adalah untuk-Ku dan Aku yang akan membalasnya.'" </p>
             <p class="quote-source">- HR. Bukhari & Muslim</p>
         </section>
 
@@ -200,7 +217,7 @@
             <h2 style="font-size: 1.5rem; margin-bottom: 25px; color: var(--text-dark);">
                 <i class="fas fa-sun" style="color: var(--gold);"></i> Dzikir Pagi
             </h2>
-            
+
             <div class="dzikir-type">
                 <h3><i class="fas fa-cloud-sun"></i> Dzikir Pagi (Subuh - Dzuhur)</h3>
                 <ul class="dzikir-list">
@@ -209,23 +226,32 @@
                         <div class="dzikir-content">
                             <p class="dzikir-arabic">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ</p>
                             <p class="dzikir-latin">"Ashbahna wa ashbal-mulku lillahi walhamdu lillahi."</p>
-                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Kami telah memasuki pagi dan kerajaan milik Allah, segala puji bagi Allah."</p>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Kami telah
+                                memasuki pagi dan kerajaan milik Allah, segala puji bagi Allah."</p>
                         </div>
                     </li>
                     <li class="dzikir-item">
                         <span class="dzikir-count">2</span>
                         <div class="dzikir-content">
-                            <p class="dzikir-arabic">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ عَدَدَ خَلْقِهِ وَرِضَا نَفْسِهِ وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ</p>
-                            <p class="dzikir-latin">"Subhanallahi wa bihamdihi 'adada khalqihi wa rida Nafsi-hi wa zinata 'Arsyihi wa midada kalimatihi."</p>
-                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Maha Suci Allah dengan pujiannya sebanyak makhluk-Nya, sebanyak ridhaNya, sebanyak berat arsy-Nya, dan sebanyak tinta kalimat-Nya."</p>
+                            <p class="dzikir-arabic">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ عَدَدَ خَلْقِهِ وَرِضَا نَفْسِهِ
+                                وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ</p>
+                            <p class="dzikir-latin">"Subhanallahi wa bihamdihi 'adada khalqihi wa rida Nafsi-hi wa
+                                zinata 'Arsyihi wa midada kalimatihi."</p>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Maha Suci Allah
+                                dengan pujiannya sebanyak makhluk-Nya, sebanyak ridhaNya, sebanyak berat arsy-Nya, dan
+                                sebanyak tinta kalimat-Nya."</p>
                         </div>
                     </li>
                     <li class="dzikir-item">
                         <span class="dzikir-count">3</span>
                         <div class="dzikir-content">
-                            <p class="dzikir-arabic">اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ</p>
-                            <p class="dzikir-latin">"Allahumma bika ashbahna wa bika amsaina wa bika nahya wa bika namutu wa ilaika-nnusyur."</p>
-                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Ya Allah, dengan-Mu kami memasuki pagi dan petang, dengan-Mu kami hidup dan mati, dan kepada-Mu kami kembali."</p>
+                            <p class="dzikir-arabic">اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا
+                                وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ</p>
+                            <p class="dzikir-latin">"Allahumma bika ashbahna wa bika amsaina wa bika nahya wa bika
+                                namutu wa ilaika-nnusyur."</p>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Ya Allah,
+                                dengan-Mu kami memasuki pagi dan petang, dengan-Mu kami hidup dan mati, dan kepada-Mu
+                                kami kembali."</p>
                         </div>
                     </li>
                 </ul>
@@ -236,7 +262,7 @@
             <h2 style="font-size: 1.5rem; margin-bottom: 25px; color: var(--text-dark);">
                 <i class="fas fa-moon" style="color: var(--primary-green);"></i> Dzikir Sore
             </h2>
-            
+
             <div class="dzikir-type">
                 <h3><i class="fas fa-star"></i> Dzikir Sore (Ashar - Magrib)</h3>
                 <ul class="dzikir-list">
@@ -245,15 +271,20 @@
                         <div class="dzikir-content">
                             <p class="dzikir-arabic">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ</p>
                             <p class="dzikir-latin">"Amsayna wa amsal-mulku lillahi walhamdu lillahi."</p>
-                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Kami telah memasuki petang dan kerajaan milik Allah, segala puji bagi Allah."</p>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Kami telah
+                                memasuki petang dan kerajaan milik Allah, segala puji bagi Allah."</p>
                         </div>
                     </li>
                     <li class="dzikir-item">
                         <span class="dzikir-count">2</span>
                         <div class="dzikir-content">
-                            <p class="dzikir-arabic">اللَّهُمَّ بِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ الْمَصِيرُ</p>
-                            <p class="dzikir-latin">"Allahumma bika amsayna wa bika nahya wa bika namutu wa ilaika-mashir."</p>
-                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Ya Allah, dengan-Mu kami memasuki petang, dengan-Mu kami hidup dan mati, dan kepada-Mu tempat kembali."</p>
+                            <p class="dzikir-arabic">اللَّهُمَّ بِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ
+                                وَإِلَيْكَ الْمَصِيرُ</p>
+                            <p class="dzikir-latin">"Allahumma bika amsayna wa bika nahya wa bika namutu wa
+                                ilaika-mashir."</p>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Ya Allah,
+                                dengan-Mu kami memasuki petang, dengan-Mu kami hidup dan mati, dan kepada-Mu tempat
+                                kembali."</p>
                         </div>
                     </li>
                     <li class="dzikir-item">
@@ -261,7 +292,9 @@
                         <div class="dzikir-content">
                             <p class="dzikir-arabic">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p>
                             <p class="dzikir-latin">"A'udhu bikalimatillahit-tammati min syarri ma khalaq."</p>
-                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Aku berlindung dengan kalimat-kalimat Allah yang sempurna dari kejahatan apa yang telah Dia ciptakan."</p>
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">"Aku berlindung
+                                dengan kalimat-kalimat Allah yang sempurna dari kejahatan apa yang telah Dia ciptakan."
+                            </p>
                         </div>
                     </li>
                 </ul>
@@ -278,4 +311,5 @@
     </footer>
 
 </body>
+
 </html>
