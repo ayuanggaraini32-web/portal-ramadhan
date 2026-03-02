@@ -38,30 +38,36 @@ header {
     width: 100%;
 }
 
-.back-link {
+.back-portal {
     position: absolute;
     left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--secondary-color);
-    font-size: 1.5rem;
+    top: 20px;
+    color: white;
     text-decoration: none;
-    width: 45px;
-    height: 45px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
     transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
+    z-index: 10;
+    font-weight: 500;
 }
 
-.back-link:hover {
-    background: var(--secondary-color);
-    color: var(--primary-color);
-    transform: translateY(-50%) translateX(-5px);
+.back-portal:hover {
+    background: #d4a825;
+    /* Gold from Misi 1 */
+    border-color: #d4a825;
+    color: #065f46;
+    /* Green from Misi 1 */
+    transform: translateX(-5px);
+}
+
+.back-portal i {
+    font-size: 0.9rem;
 }
 
 header h1 {
