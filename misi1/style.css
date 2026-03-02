@@ -13,9 +13,9 @@
     --text-light: #64748b;
     --bg-body: #fafaf9;
     --bg-card: #ffffff;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-    --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 /* ===================================
@@ -97,13 +97,16 @@ body {
     .quick-nav {
         gap: 10px;
     }
+
     .nav-card {
         padding: 16px 20px;
         min-width: 100px;
     }
+
     .nav-card i {
         font-size: 1.5rem;
     }
+
     .nav-card span {
         font-size: 0.8rem;
     }
@@ -119,6 +122,36 @@ body {
     padding: 60px 20px;
     position: relative;
     overflow: hidden;
+}
+
+.back-portal {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    z-index: 10;
+    font-weight: 500;
+}
+
+.back-portal:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--primary-green);
+    transform: translateX(-5px);
+}
+
+.back-portal i {
+    font-size: 0.9rem;
 }
 
 .header-decoration {
@@ -318,47 +351,47 @@ hr {
     .main-header {
         padding: 45px 20px;
     }
-    
+
     .main-header h1 {
         font-size: 1.8rem;
     }
-    
+
     .main-header p {
         font-size: 1rem;
     }
-    
+
     .container {
         padding: 30px 16px 50px;
     }
-    
+
     .category-header {
         gap: 14px;
     }
-    
+
     .category-icon {
         width: 48px;
         height: 48px;
         font-size: 1.3rem;
     }
-    
+
     .category-header h2 {
         font-size: 1.35rem;
     }
-    
+
     .prayer-card {
         padding: 20px;
         border-radius: 12px;
     }
-    
+
     .arabic-text {
         font-size: 1.5rem;
         line-height: 2.2;
     }
-    
+
     .translation-box {
         padding: 16px;
     }
-    
+
     .latin-text,
     .meaning-text {
         font-size: 0.95rem;
@@ -369,7 +402,7 @@ hr {
     .arabic-text {
         font-size: 1.25rem;
     }
-    
+
     .category-header {
         flex-direction: column;
         align-items: flex-start;
