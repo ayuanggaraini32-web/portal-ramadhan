@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Zakat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold-primary': '#D4AF37',
+                        'gold-dark': '#B8860B',
+                    },
+                    fontFamily: {
+                        'plus': ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+    <!-- HEADER -->
+    <header class="bg-white border-b-4 border-gold-primary py-6 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 green-gradient rounded-xl flex items-center justify-center shadow-lg transform rotate-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold text-emerald-900 tracking-tight">
+                        KALKULATOR <span class="text-amber-600">ZAKAT</span>
+                    </h1>
+                    <p class="text-xs font-medium text-emerald-700 uppercase tracking-widest">
+                        Sucikan Harta, Tenangkan Jiwa
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow container mx-auto px-4 py-10 max-w-5xl">
+        <div class="grid lg:grid-cols-5 gap-8 items-start">
+
+            <!-- FORM SECTION -->
+            <section class="lg:col-span-3 card p-8 relative overflow-hidden">
+                <h2 class="text-2xl font-bold text-emerald-900 mb-8 ornament-border inline-block">
+                    Parameter Zakat
+                </h2>
+
+                <div class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-emerald-800 mb-2 uppercase tracking-wide">
+                                Pilih Jenis Zakat
+                            </label>
+                            <select id="zakatType" class="input-field bg-white">
+                                <option value="penghasilan">Zakat Penghasilan</option>
+                                <option value="emas">Zakat Emas</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-emerald-800 mb-2 uppercase tracking-wide">
+                                Harga Emas Hari Ini
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-2.5 text-gold-dark font-bold">Rp</span>
+                                <input type="number" id="goldPrice" class="input-field pl-12" placeholder="Contoh: 1,200,000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-gold-primary opacity-20">
+
+                    <!-- FORM PENGHASILAN -->
+                    <div id="formPenghasilan" class="space-y-5">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-emerald-800 mb-2">Gaji Bulanan</label>
+                                <input type="number" id="income" class="input-field" placeholder="0">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-emerald-800 mb-2">Bonus / Lain-lain</label>
+                                <input type="number" id="otherIncome" class="input-field" placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FORM EMAS -->
+                    <div id="formEmas" class="hidden space-y-5">
+                        <div>
+                            <label class="block text-sm font-bold text-emerald-800 mb-2">Berat Emas yang Dimiliki</label>
+                            <div class="relative">
+                                <input type="number" id="goldWeight" class="input-field pr-16" placeholder="0">
+                                <span class="absolute right-4 top-2.5 text-gold-dark font-bold">gram</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BUTTON -->
+                    <button id="btnCalculate" class="btn-calculate w-full">
+                        Hitung Zakat Sekarang
+                    </button>
+                </div>
+            </section>
+
+            <!-- RESULT SECTION -->
+            <section id="resultBox" class="lg:col-span-2 result-box">
+                <div class="card p-8 border-t-8 border-gold-primary">
+
+                    <h3 class="text-xl font-extrabold text-emerald-900 text-center">
+                        Rincian Kewajiban
+                    </h3>
+
+                    <div class="space-y-4 mt-6">
+                        <div class="bg-gray-50 p-4 rounded-xl border-l-4 border-emerald-800">
+                            <p class="text-xs text-emerald-800 font-bold uppercase mb-1">Total Harta Terhitung</p>
+                            <p id="resTotal" class="text-lg font-bold">Rp 0</p>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-xl border-l-4 border-gold-primary">
+                            <p class="text-xs text-gold-dark font-bold uppercase mb-1">Ambang Batas (Nisab)</p>
+                            <p id="resNisab" class="text-lg font-bold">Rp 0</p>
+                        </div>
+
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-sm font-bold text-emerald-900 uppercase">Status</span>
+                            <span id="resStatus" class="px-3 py-1 rounded-full text-xs font-black tracking-widest">WAJIB</span>
+                        </div>
+
+                        <div class="mt-8 p-6 green-gradient rounded-2xl text-center">
+                            <p class="text-xs text-white opacity-80 uppercase">Zakat yang ditunaikan</p>
+                            <p id="resZakat" class="text-3xl font-black text-white">Rp 0</p>
+                        </div>
+
+                        <div id="notObligatedNote" class="hidden text-sm text-center text-amber-700 bg-amber-50 p-4 rounded-xl border border-amber-200">
+                            <p>Harta belum mencapai nisab.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-emerald-950 text-white py-12 mt-12">
+        <div class="container mx-auto px-4 text-center text-xs opacity-50 uppercase tracking-widest">
+            © 2024 Zakat Digital Indonesia
+        </div>
+    </footer>
+
+    <!-- SCRIPT EKSTERNAL -->
+    <script src="script.js"></script>
+</body>
+</html>
