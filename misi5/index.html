@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Imsakiyah Ramadhan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <i class="fas fa-mosque" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 0.5rem;"></i>
+        <h1>Jadwal Imsakiyah Ramadhan</h1>
+        <p>Pilih kota untuk melihat jadwal puasa bulan ini</p>
+    </header>
+
+    <main>
+
+        <section class="controls">
+            <label for="city">
+                <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>Pilih Kota
+            </label>
+            <select id="city">
+                <option value="1301">Jakarta</option>
+                <option value="1305">Bandung</option>
+                <option value="1631">Surabaya</option>
+                <option value="1204">Yogyakarta</option>
+                <option value="1505">Semarang</option>
+                <option value="1471">Medan</option>
+                <option value="1690">Makassar</option>
+                <option value="1101">Aceh</option>
+                <option value="1602">Malang</option>
+                <option value="1213">Solo</option>
+            </select>
+        </section>
+
+        <section id="status">
+            <p id="loading" class="hidden">Memuat data...</p>
+            <p id="error" class="hidden">Gagal memuat data. Silakan coba lagi.</p>
+        </section>
+
+        <section class="table-container">
+            <table id="imsakiyahTable">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Imsak</th>
+                        <th>Subuh</th>
+                        <th>Dzuhur</th>
+                        <th>Ashar</th>
+                        <th>Maghrib</th>
+                        <th>Isya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data akan diisi oleh JavaScript -->
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 <i class="fas fa-heart" style="color: #e74c3c;"></i> Ramadhan Web | Data dari API myQuran</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
