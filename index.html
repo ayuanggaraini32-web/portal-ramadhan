@@ -4,298 +4,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramadhan Berkah - Ayu Anggaraini</title>
+    <title>Ramadhan Portal - Pusat Navigasi Ibadah</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #1B3B18;
-            /* Deep Islamic Green */
-            --secondary: #D4AF37;
-            /* Gold */
-            --accent: #FDF5E6;
-            /* Cream */
-            --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: linear-gradient(135deg, #0f2310 0%, #1b3b18 100%);
-            color: var(--white);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            padding: 20px;
-        }
-
-        /* Decorative Background Elements */
-        body::before {
-            content: "\f662";
-            /* Mosque icon */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: fixed;
-            top: -50px;
-            right: -50px;
-            font-size: 25rem;
-            opacity: 0.05;
-            rotate: 15deg;
-            z-index: -1;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 4rem;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        header h1 {
-            font-family: 'Amiri', serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            font-weight: 300;
-        }
-
-        .portal-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            width: 100%;
-            max-width: 900px;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 3rem 2rem;
-            text-align: center;
-            text-decoration: none;
-            color: var(--white);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .card:hover::after {
-            left: 100%;
-        }
-
-        .card:hover {
-            transform: translateY(-15px) scale(1.02);
-            border-color: var(--secondary);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .card-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(212, 175, 55, 0.15);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--secondary);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover .card-icon {
-            transform: rotateY(180deg);
-            background: var(--secondary);
-            color: var(--primary);
-        }
-
-        .card h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .card p {
-            font-size: 1rem;
-            opacity: 0.7;
-            line-height: 1.6;
-        }
-
-        .badge {
-            background: var(--secondary);
-            color: var(--primary);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 3rem 0;
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.6;
-            animation: fadeIn 2s ease;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .portal-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-    <header>
-        <p>Selamat Datang di Portal Eksplorasi</p>
-        <h1>PROJECT PAGE RAMADHAN BERKAH</h1>
-        <p>BY AYU ANGGARAINI</p>
+    <!-- Decorative Background -->
+    <div class="bg-pattern"></div>
+    <div class="bg-glow"></div>
+
+    <!-- Header with Navigation -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="index.html" class="navbar-brand">
+                    <div class="brand-icon">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <span class="brand-text">Ramadhan Portal</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Navigation Menu -->
+                <ul class="navbar-menu" id="navbarMenu">
+                    <li><a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i> <span>Home</span>
+                    </a></li>
+                    <li><a href="misi5/index.html" class="nav-link">
+                        <i class="fas fa-clock"></i> <span>Jadwal Imsakiyah</span>
+                    </a></li>
+                    <li><a href="misi1/doa-harian.html" class="nav-link">
+                        <i class="fas fa-book-quran"></i> <span>Doa Harian</span>
+                    </a></li>
+                    <li><a href="misi1/index.html" class="nav-link">
+                        <i class="fas fa-moon"></i> <span>Doa Sahur & Buka</span>
+                    </a></li>
+                    <li><a href="misi1/dzikir.html" class="nav-link">
+                        <i class="fas fa-pray"></i> <span>Dzikir</span>
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <div class="portal-container">
-        <!-- Misi 1 -->
-        <a href="misi1/index.html" class="card">
-            <span class="badge">TAHAP 1</span>
-            <div class="card-icon">
-                <i class="fas fa-moon"></i>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star-and-crescent"></i>
+                    <span>1446 H / 2026</span>
+                </div>
+                <h1 class="hero-title">
+                    Selamat Datang di<br>
+                    <span class="highlight">Ramadhan Portal</span>
+                </h1>
+                <p class="hero-description">
+                    Ramadhan Portal merupakan pusat informasi dan fitur ibadah Ramadhan
+                    yang memudahkan pengguna mengakses jadwal imsakiyah, doa harian,
+                    doa sahur dan berbuka, dzikir, serta berbagai konten Islami lainnya.
+                </p>
+                <div class="hero-cta">
+                    <a href="#features" class="btn-primary">
+                        <i class="fas fa-compass"></i> Jelajahi Fitur
+                    </a>
+                    <a href="misi4/index.html" class="btn-secondary">
+                        <i class="fas fa-clipboard-list"></i> Tracker Ibadah
+                    </a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Fitur</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">30</span>
+                        <span class="stat-label">Hari</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Berkah</span>
+                    </div>
+                </div>
             </div>
-            <h2>Misi 1</h2>
-            <p>Eksplorasi doa-doa harian, dzikir pagi & petang, serta galeri momen istimewa di bulan Ramadhan.</p>
-        </a>
-
-        <!-- Misi 2 -->
-        <a href="misi2/index.html" class="card">
-
-            <span class="badge">TAHAP 2</span>
-            <div class="card-icon">
-                <i class="fas fa-calculator"></i>
+            <div class="hero-decoration">
+                <div class="mosque-icon">
+                    <svg viewBox="0 0 100 100" class="mosque-svg">
+                        <defs>
+                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#D4AF37"/>
+                                <stop offset="50%" style="stop-color:#F5D76E"/>
+                                <stop offset="100%" style="stop-color:#B8860B"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Mosque dome -->
+                        <path d="M50 10 C30 10 20 25 20 40 L20 50 L80 50 L80 40 C80 25 70 10 50 10" fill="url(#goldGrad)" opacity="0.9"/>
+                        <path d="M50 5 C35 5 25 18 25 30 C25 20 35 10 50 10 C65 10 75 20 75 30 C75 18 65 5 50 5" fill="url(#goldGrad)"/>
+                        <!-- Minarets -->
+                        <rect x="10" y="30" width="8" height="50" rx="2" fill="url(#goldGrad)" opacity="0.8"/>
+                        <rect x="82" y="30" width="8" height="50" rx="2" fill="url(#goldGrad)" opacity="0.8"/>
+                        <!-- Base -->
+                        <rect x="15" y="50" width="70" height="15" rx="3" fill="url(#goldGrad)" opacity="0.7"/>
+                        <!-- Door -->
+                        <path d="M42 65 L42 55 C42 53 44 52 50 52 C56 52 58 53 58 55 L58 65 Z" fill="#1B3B18"/>
+                    </svg>
+                </div>
             </div>
-            <h2>Misi 2</h2>
-            <p>Fitur interaktif Hitung Zikir digital yang memudahkan Anda mencapai target ibadah harian.</p>
-        </a>
+        </section>
 
-        <!-- Misi 3 -->
-        <a href="misi3/index.html" class="card">
-            <span class="badge">TAHAP 3</span>
-            <div class="card-icon">
-                <i class="fas fa-coins"></i>
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-th-large"></i>
+                </div>
+                <h2>Fitur Website</h2>
+                <p>Pilih salah satu fitur di bawah untuk memulai perjalanan ibadahnya</p>
             </div>
-            <h2>Misi 3</h2>
-            <p>Fitur interaktif Kalkulator Zakat untuk hitung kewajiban zakat Anda.</p>
-        </a>
+            
+            <div class="features-grid">
+                <!-- Feature 1: Jadwal Imsakiyah -->
+                <a href="misi5/index.html" class="feature-card">
+                    <div class="feature-icon green">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Jadwal Imsakiyah</h3>
+                        <p>Lihat jadwal imsakiyah berbagai kota di Indonesia lengkap dengan waktu salat.</p>
+                    </div>
+                    <div class="feature-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
 
-        <!-- Misi 4 -->
-        <a href="misi4/index.html" class="card">
-            <span class="badge">TAHAP 4</span>
-            <div class="card-icon">
-                <i class="fas fa-clipboard-list"></i>
+                <!-- Feature 2: Doa Harian -->
+                <a href="misi1/doa-harian.html" class="feature-card">
+                    <div class="feature-icon gold">
+                        <i class="fas fa-book-quran"></i>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Doa Harian</h3>
+                        <p>Kumpulan doa-doa harian lengkap dengan arab, latin, dan artinya.</p>
+                    </div>
+                    <div class="feature-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Feature 3: Doa Sahur & Buka Puasa -->
+                <a href="misi1/index.html" class="feature-card">
+                    <div class="feature-icon cream">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Doa Sahur & Buka Puasa</h3>
+                        <p>Doa niat puasa, doa makan sahur, dan doa berbuka puasa.</p>
+                    </div>
+                    <div class="feature-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Feature 4: Dzikir & Artikel -->
+                <a href="misi1/dzikir.html" class="feature-card">
+                    <div class="feature-icon green">
+                        <i class="fas fa-pray"></i>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Dzikir & Artikel</h3>
+                        <p>Dzikir pagi dan petang, shalawat, serta artikel pilihan Ramadhan.</p>
+                    </div>
+                    <div class="feature-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Feature 5: Hitung Zikir -->
+                <a href="misi2/index.html" class="feature-card">
+                    <div class="feature-icon gold">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Hitung Zikir</h3>
+                        <p>Hitung zikir digital untuk membantu mencapai target dzikir harian.</p>
+                    </div>
+                    <div class="feature-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Feature 6: Kalkulator Zakat -->
+                <a href="misi3/index.html" class="feature-card">
+                    <div class="feature-icon cream">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Kalkulator Zakat</h3>
+                        <p>Hitung kewajiban zakat penghasilan dan zakat emas dengan mudah.</p>
+                    </div>
+                    <div class="feature-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Feature 7: Ramadhan Tracker -->
+                <a href="misi4/index.html" class="feature-card">
+                    <div class="feature-icon green">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Ramadhan Tracker</h3>
+                        <p>Pantau progress ibadah harian: salat, Quran, puasa, dan dzikir.</p>
+                    </div>
+                    <div class="feature-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Feature 8: Gallery -->
+                <a href="misi1/gallery.html" class="feature-card">
+                    <div class="feature-icon gold">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Gallery Momen</h3>
+                        <p>Kumpulan momen istimewa selama bulan Ramadhan.</p>
+                    </div>
+                    <div class="feature-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
             </div>
-            <h2>Misi 4</h2>
-            <p>Fitur pelacak daily tracker untuk pantau ibadah harian Anda.</p>
-        </a>
+        </section>
 
-        <!-- Misi 5 -->
-        <a href="misi5/index.html" class="card">
-            <span class="badge">TAHAP 5</span>
-            <div class="card-icon">
-                <i class="fas fa-mosque"></i>
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <div class="quote-content">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <blockquote>
+                    "Barangsiapa yang berpuasa di bulan Ramadhan dengan faith (iman) dan ihtisab (mengharapkan pahala), 
+                    maka dosa-dosanya yang lalu akan diampuni."
+                </blockquote>
+                <cite>— HR. Bukhari & Muslim</cite>
             </div>
-            <h2>Misi 5</h2>
-            <p>Jadwal Imsakiyah untuk melihat jadwal puasa berbagai kota di Indonesia.</p>
-        </a>
-    </div>
+        </section>
+    </main>
 
-    <footer>
-        <p>&copy; 2026 Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> by Ayu Anggaraini</p>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="brand-icon small">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <span>Ramadhan Portal</span>
+            </div>
+            <p class="footer-tagline">Semangat Beribadah di Bulan Suci</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <span class="separator">•</span>
+                <a href="misi5/index.html">Jadwal</a>
+                <span class="separator">•</span>
+                <a href="misi1/doa-harian.html">Doa</a>
+                <span class="separator">•</span>
+                <a href="misi3/index.html">Zakat</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="footer-copyright">
+                &copy; 2026 Project Page Ramadhan | Created with <i class="fas fa-heart"></i> by Ayu Anggaraini
+            </p>
+        </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('navbarToggle').addEventListener('click', function() {
+            document.getElementById('navbarMenu').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('navbarMenu');
+            const toggle = document.getElementById('navbarToggle');
+            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+                menu.classList.remove('active');
+                toggle.querySelector('i').classList.add('fa-bars');
+                toggle.querySelector('i').classList.remove('fa-times');
+            }
+        });
+    </script>
 
 </body>
 
 </html>
+

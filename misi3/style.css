@@ -102,3 +102,37 @@
     }
 }
 
+/* Back Portal Button */
+.back-portal {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.back-portal:hover {
+    background: var(--gold-primary);
+    border-color: var(--gold-primary);
+    color: white;
+    transform: translateX(-5px);
+}
+
+.back-portal i {
+    font-size: 0.85rem;
+}
+
+/* Header Brand */
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
