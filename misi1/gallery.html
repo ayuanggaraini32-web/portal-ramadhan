@@ -12,8 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
-    <style>
-        :root { --primary-green: #065f46; --gold: #d4a825; --text-dark: #1e293b; --text-light: #64748b; }
+<style>
+        :root { 
+            --primary: #1B3B18;
+            --secondary: #D4AF37;
+        }
+        /* Override home vars for gallery */
+        body { background: linear-gradient(135deg, #065f46 0%, #047857 50%, #065f46 100%); }
+        .gallery-card { background: rgba(255,255,255,0.95); }
+        /* Keep existing styles */
         body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #065f46 0%, #047857 50%, #065f46 100%); min-height: 100vh; margin: 0; padding: 0; }
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px 60px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
