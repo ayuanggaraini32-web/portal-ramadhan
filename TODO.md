@@ -1,39 +1,28 @@
-# ✅ PROJECT COMPLETE - Ramadhan Portal Live Ready
+# Misi 1 - Improvement Plan & Progress Tracker
 
-See README.md & misi6/index.html for final status.
+## Status: ✅ In Progress
 
-**Deploy: `git add . && git commit -m \"Deploy ready\" && git push && gh pages setup`**
+### Step 1: Create TODO.md [COMPLETED]
 
+### Step 2: Fix misi1/gallery.html
+- [ ] Remove duplicate CSS links
+- [ ] Add JS for gallery lightbox/interactions
+- [ > ] Replace icons with Ramadhan images
+- [ ] Add prayer quotes to cards
+- Test: Open in browser
 
-## Plan
+### Step 3: Complete misi1/doa-harian.html missing tabs
+- [ ] Add Witir tab content (Niat + Qunut)
+- [ ] Add Setelah Sholat tab (Doa setelah salam)
+- [ ] Add Idulfitri tab (Takbir + Doa)
+- [ ] Test tabs functionality
 
-### Step 1: Update index.html (Main Portal)
-- [x] Add proper semantic HTML structure (<header>, <nav>, <main>, <section>, <footer>)
-- [x] Create navbar with navigation menu
-- [x] Add Hero section with title and description
-- [x] Add Features section with cards for each page
-- [x] Add mobile responsive navbar (hamburger menu)
+### Step 4: Consistency fixes
+- [ ] Navbar active states
+- [ ] Smooth animations
+- Test navigation across pages
 
-### Step 2: Update style.css (Main Portal)
-- [x] Add navbar styles (background, horizontal menu, hover effects)
-- [x] Add hero section styles
-- [x] Add feature cards styles
-- [x] Ensure Ramsay-friendly colors (Green, Gold, Cream)
-- [x] Add responsive design for mobile
-
-### Step 3: Update All Misi Pages
-- [x] misi1/index.html (Doa Sahur & Buka Puasa)
-- [x] misi1/doa-harian.html (Doa Harian)
-- [x] misi1/dzikir.html (Dzikir & Quote)
-- [x] misi1/gallery.html (Gallery)
-- [x] misi2/index.html (Hitung Zikir)
-- [x] misi2/style.css
-- [x] misi3/index.html (Kalkulator Zakat)
-- [x] misi3/style.css
-- [x] misi4/index.html (Ramadhan Tracker)
-- [x] misi4/style.css
-- [x] misi5/index.html (Jadwal Imsakiyah)
-- [x] misi5/style.css
-
-## Status: COMPLETED ✅
-
+### Step 5: Final Testing & Completion
+- [ ] Preview both files
+- [ ] Update TODO.md as [COMPLETED]
+- [ ] attempt_completion

@@ -12,231 +12,152 @@
 <body>
 
 <div class="container">
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="../index.html" class="navbar-brand">
+                    <div class="brand-icon"><i class="fas fa-mosque"></i></div>
+                    <span class="brand-text">Ramadhan Portal</span>
+                </a>
+                <button class="navbar-toggle" id="navbarToggle"><i class="fas fa-bars"></i></button>
+                <ul class="navbar-menu" id="navbarMenu">
+                    <li><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../misi1/" class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="../misi5/index.html" class="nav-link"><i class="fas fa-clock"></i> Imsakiyah</a></li>
+                    <li><a href="#" class="nav-link active"><i class="fas fa-clipboard-list"></i> Tracker</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-  <!-- HEADER -->
-  <header>
-    <a href="../index.html" class="back-portal">
-        <i class="fas fa-arrow-left"></i> Kembali
-    </a>
-    
-    <!-- Elemen Bulan di Atas Teks -->
-    <div class="moon-wrapper">
-        <svg class="moon-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M28 6C17.5 8 10 17.5 10 28.5C10 40.9 20.1 51 32.5 51C38.7 51 44.3 48.4 48.2 44.2C44.6 45.1 40.8 45.2 37 44C25.6 40.6 18.4 28.6 21 17C22.5 10.8 24.8 7.5 28 6Z" fill="#c9933a" opacity="0.85"/>
-            <path d="M28 6C17.5 8 10 17.5 10 28.5C10 40.9 20.1 51 32.5 51C38.7 51 44.3 48.4 48.2 44.2C44.6 45.1 40.8 45.2 37 44C25.6 40.6 18.4 28.6 21 17C22.5 10.8 24.8 7.5 28 6Z" stroke="#e8b55a" stroke-width="1.5"/>
-            <circle cx="38" cy="12" r="2.5" fill="#f5d990" opacity="0.9"/>
-            <circle cx="44" cy="20" r="1.5" fill="#f5d990" opacity="0.6"/>
-            <circle cx="34" cy="6" r="1" fill="#f5d990" opacity="0.7"/>
-        </svg>
+    <div class="daily-summary">
+        <div class="summary-circle">
+            <svg viewBox="0 0 56 56">
+                <circle class="circle-bg" cx="28" cy="28" r="26"/>
+                <circle class="circle-prog" id="circleProgress" cx="28" cy="28" r="26" style="stroke-dasharray: 163; stroke-dashoffset: 163;"/>
+            </svg>
+            <div class="circle-text" id="summaryPct">0%</div>
+        </div>
+        <div class="summary-info">
+            <div class="summary-label">Progress Hari Ini</div>
+            <div class="summary-status" id="summaryStatus">Bismillah, mulai ibadahmu</div>
+            <div class="summary-date" id="summaryDate">14 Maret 2026</div>
+        </div>
     </div>
-    
-    <div class="logo-wrap">
-        <div class="header-title">Ramadhan Tracker</div>
-        <div class="header-sub">Panduan Ibadahmu Setiap Hari</div>
-  </header>
 
-  <!-- DAILY SUMMARY -->
-  <div class="daily-summary">
-    <div class="summary-circle">
-      <svg viewBox="0 0 56 56">
-        <circle class="circle-bg" cx="28" cy="28" r="26"/>
-        <circle class="circle-prog" id="circleProgress" cx="28" cy="28" r="26"/>
-      </svg>
-      <div class="circle-text" id="summaryPct">0%</div>
-    <div class="summary-info">
-      <div class="summary-label">Progress Hari Ini</div>
-      <div class="summary-status" id="summaryStatus">Bismillah, mulai ibadahmu</div>
-      <div class="summary-date" id="summaryDate"></div>
-  </div>
+    <nav class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('shalat', this)">
+            <span class="tab-icon"><i class="fas fa-mosque"></i></span>Shalat
+        </button>
+        <button class="tab-btn" onclick="switchTab('quran', this)">
+            <span class="tab-icon"><i class="fas fa-book-quran"></i></span>Qur'an
+        </button>
+        <button class="tab-btn" onclick="switchTab('puasa', this)">
+            <span class="tab-icon"><i class="fas fa-moon"></i></span>Puasa
+        </button>
+        <button class="tab-btn" onclick="switchTab('dzikir', this)">
+            <span class="tab-icon"><i class="fas fa-pray"></i></span>Dzikir
+        </button>
+    </nav>
 
-  <!-- TAB NAV -->
-  <nav class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('shalat', this)">
-      <span class="tab-icon"><i class="fas fa-mosque"></i></span>Shalat
-    </button>
-    <button class="tab-btn" onclick="switchTab('quran', this)">
-      <span class="tab-icon"><i class="fas fa-book-quran"></i></span>Qur'an
-    </button>
-    <button class="tab-btn" onclick="switchTab('puasa', this)">
-      <span class="tab-icon"><i class="fas fa-moon"></i></span>Puasa
-    </button>
-    <button class="tab-btn" onclick="switchTab('dzikir', this)">
-      <span class="tab-icon"><i class="fas fa-pray"></i></span>Dzikir
-    </button>
-  </nav>
+    <div class="tab-panel active" id="tab-shalat">
+        <div class="card">
+            <div class="card-title"><i class="fas fa-mosque"></i> Shalat Wajib</div>
+            <ul class="prayer-list" id="prayerList">
+                <li class="prayer-item" data-key="subuh" onclick="togglePrayer(this)">
+                    <div class="prayer-checkbox"><i class="fas fa-check"></i></div>
+                    <div class="prayer-details">
+                        <div class="prayer-name">Subuh</div>
+                        <div class="prayer-arabic">صُبْح</div>
+                    </div>
+                    <div class="prayer-time">04:30</div>
+                </li>
+                <li class="prayer-item" data-key="dzuhur" onclick="togglePrayer(this)">
+                    <div class="prayer-checkbox"><i class="fas fa-check"></i></div>
+                    <div class="prayer-details">
+                        <div class="prayer-name">Dzuhur</div>
+                        <div class="prayer-arabic">ظُهْر</div>
+                    </div>
+                    <div class="prayer-time">12:00</div>
+                </li>
+                <li class="prayer-item" data-key="ashar" onclick="togglePrayer(this)">
+                    <div class="prayer-checkbox"><i class="fas fa-check"></i></div>
+                    <div class="prayer-details">
+                        <div class="prayer-name">Ashar</div>
+                        <div class="prayer-arabic">عَصْر</div>
+                    </div>
+                    <div class="prayer-time">15:15</div>
+                </li>
+                <li class="prayer-item" data-key="maghrib" onclick="togglePrayer(this)">
+                    <div class="prayer-checkbox"><i class="fas fa-check"></i></div>
+                    <div class="prayer-details">
+                        <div class="prayer-name">Maghrib</div>
+                        <div class="prayer-arabic">مَغْرِب</div>
+                    </div>
+                    <div class="prayer-time">18:00</div>
+                </li>
+                <li class="prayer-item" data-key="isya" onclick="togglePrayer(this)">
+                    <div class="prayer-checkbox"><i class="fas fa-check"></i></div>
+                    <div class="prayer-details">
+                        <div class="prayer-name">Isya</div>
+                        <div class="prayer-arabic">عِشَاء</div>
+                    </div>
+                    <div class="prayer-time">19:15</div>
+                </li>
+            </ul>
+            <div class="prog-wrap">
+                <div class="prog-header">
+                    <span class="prog-label">Kelengkapan Shalat</span>
+                    <span class="prog-pct" id="shalatPct">0%</span>
+                </div>
+                <div class="prog-bar"><div class="prog-fill" id="shalatBar" style="width:0%"></div></div>
+            </div>
+            <div id="shalatStatus" class="status-badge low">Belum ada salat yang dicatat</div>
+            <button class="btn-save" onclick="saveShalat(this)">Simpan Shalat</button>
+        </div>
+    </div>
 
-  <!-- ==================== TAB 1: SHALAT ==================== -->
-  <div class="tab-panel active" id="tab-shalat">
+    <div class="tab-panel" id="tab-quran">
     <div class="card">
-      <div class="card-title"><i class="fas fa-mosque"></i> Shalat Wajib</div>
-      <ul class="prayer-list" id="prayerList">
-        <li class="prayer-item" data-key="subuh" onclick="togglePrayer(this)">
-          <div class="prayer-checkbox">&#10003;</div>
-          <div class="prayer-name">Subuh</div>
-          <div class="prayer-arabic">صُبْح</div>
-          <div class="prayer-time">04:30</div>
-        </li>
-        <li class="prayer-item" data-key="dzuhur" onclick="togglePrayer(this)">
-          <div class="prayer-checkbox">&#10003;</div>
-          <div class="prayer-name">Dzuhur</div>
-          <div class="prayer-arabic">ظُهْر</div>
-          <div class="prayer-time">12:00</div>
-        </li>
-        <li class="prayer-item" data-key="ashar" onclick="togglePrayer(this)">
-          <div class="prayer-checkbox">&#10003;</div>
-          <div class="prayer-name">Ashar</div>
-          <div class="prayer-arabic">عَصْر</div>
-          <div class="prayer-time">15:15</div>
-        </li>
-        <li class="prayer-item" data-key="maghrib" onclick="togglePrayer(this)">
-          <div class="prayer-checkbox">&#10003;</div>
-          <div class="prayer-name">Maghrib</div>
-          <div class="prayer-arabic">مَغْرِب</div>
-          <div class="prayer-time">18:00</div>
-        </li>
-        <li class="prayer-item" data-key="isya" onclick="togglePrayer(this)">
-          <div class="prayer-checkbox">&#10003;</div>
-          <div class="prayer-name">Isya</div>
-          <div class="prayer-arabic">عِشَاء</div>
-          <div class="prayer-time">19:15</div>
-        </li>
-      </ul>
-      <div class="prog-wrap">
-        <div class="prog-header">
-          <span class="prog-label">Kelengkapan Shalat</span>
-          <span class="prog-pct" id="shalatPct">0%</span>
+        <div class="card-title">
+            <i><i class="fas fa-book-quran"></i></i> 
+            Baca Al-Qur'an
         </div>
-        <div class="prog-bar"><div class="prog-fill" id="shalatBar" style="width:0%"></div>
-      </div>
-      <div id="shalatStatus" class="status-badge low">Belum ada salat yang dicatat</div>
-      <button class="btn-save" onclick="saveShalat(this)">Simpan Shalat</button>
-    </div>
 
-  <!-- ==================== TAB 2: QURAN ==================== -->
-  <div class="tab-panel" id="tab-quran">
-    <div class="card">
-      <div class="card-title"><i class="fas fa-book-quran"></i> Baca Al-Qur'an</div>
-      <div class="input-col">
-        <div class="input-group">
-          <label class="input-label">Target Halaman</label>
-          <input type="number" id="quranTarget" placeholder="mis. 20" min="1" max="604" oninput="calcQuran()">
+        <div class="quran-input-grid">
+            <div class="input-group">
+                <label class="input-label">Target Halaman</label>
+                <input type="number" id="quranTarget" class="glass-input" placeholder="0" oninput="calcQuran()">
+            </div>
+            <div class="input-group">
+                <label class="input-label">Sudah Dibaca</label>
+                <input type="number" id="quranRead" class="glass-input" placeholder="0" oninput="calcQuran()">
+            </div>
         </div>
-        <div class="input-group">
-          <label class="input-label">Sudah Dibaca</label>
-          <input type="number" id="quranRead" placeholder="mis. 12" min="0" max="604" oninput="calcQuran()">
-        </div>
-      <div class="quran-big-display">
-        <div class="quran-pages-shown" id="quranDisplay">- / -</div>
-        <div class="quran-pages-label">halaman hari ini</div>
-      <div class="divider"></div>
-      <div class="prog-wrap">
-        <div class="prog-header">
-          <span class="prog-label">Progress Bacaan</span>
-          <span class="prog-pct" id="quranPct">0%</span>
-        </div>
-        <div class="prog-bar"><div class="prog-fill gold" id="quranBar" style="width:0%"></div>
-      </div>
-      <div id="quranStatus" class="status-badge low">Masukkan target dan halaman dibaca</div>
-      <div class="toggle-done" id="quranDoneToggle" onclick="toggleQuranDone()">
-        <div class="toggle-box" id="quranDoneBox">&#10003;</div>
-        <span class="toggle-text">Tandai target hari ini selesai</span>
-      </div>
-      <button class="btn-save" onclick="saveQuran(this)">Simpan Bacaan</button>
-    </div>
 
-  <!-- ==================== TAB 3: PUASA ==================== -->
-  <div class="tab-panel" id="tab-puasa">
-    <div class="card">
-      <div class="card-title"><i class="fas fa-moon"></i> Puasa Ramadhan</div>
-      <div class="ramadhan-day-badge">
-        <div class="day-badge-inner">
-          <span><i class="fas fa-moon"></i></span>
-          <span id="ramadhanDayText">Hari ke-<strong id="ramadhanDay">-</strong> Ramadhan</span>
+        <div class="quran-big-display">
+            <div class="quran-pages-shown" id="quranDisplay">0 / 0</div>
+            <div class="quran-pages-label">Halaman Hari Ini</div>
         </div>
-      <div class="today-fast-row" id="todayFastRow" onclick="toggleTodayFast()">
-        <div class="big-check" id="todayFastCheck">&#10003;</div>
-        <div class="today-fast-label" id="todayFastLabel">Sudah puasa hari ini?</div>
-      <div class="prog-wrap">
-        <div class="prog-header">
-          <span class="prog-label">Puasa 30 Hari</span>
-          <span class="prog-pct" id="osiasiPct">0 / 30</span>
-        </div>
-        <div class="prog-bar"><div class="prog-fill rose" id="puasabar" style="width:0%"></div>
-      </div>
-      <div class="divider"></div>
-      <div class="info-row">
-        <span>Kalender Ramadhan 1446 H</span>
-        <span class="info-val" style="font-size:0.78rem;color:var(--cream-dim)">Tap tanggal untuk toggle</span>
-      </div>
-      <div class="cal-grid" id="calGrid"></div>
-      <div id="ciosaStatus" class="status-badge low">Semangat berpuasa, insyaAllah!</div>
-      <button class="btn-save" onclick="savePuasa(this)">Simpan Puasa</button>
-    </div>
 
-  <!-- ==================== TAB 4: DZIKIR ==================== -->
-  <div class="tab-panel" id="tab-dzikir">
-    <div class="card">
-      <div class="card-title"><i class="fas fa-pray"></i> Dzikir Harian</div>
-      <ul class="dzikir-list" id="dzikirList">
-        <li class="dzikir-item" data-key="subhanallah" onclick="toggleDzikir(this)">
-          <div class="dzikir-checkbox">&#10003;</div>
-          <div class="dzikir-info">
-            <div class="dzikir-name">Subhanallah</div>
-            <div class="dzikir-arabic">سُبْحَانَ اللَّهِ</div>
-            <div class="dzikir-count">33x setelah salat</div>
-        </li>
-        <li class="dzikir-item" data-key="alhamdulillah" onclick="toggleDzikir(this)">
-          <div class="dzikir-checkbox">&#10003;</div>
-          <div class="dzikir-info">
-            <div class="dzikir-name">Alhamdulillah</div>
-            <div class="dzikir-arabic">الْحَمْدُ لِلَّهِ</div>
-            <div class="dzikir-count">33x setelah salat</div>
-        </li>
-        <li class="dzikir-item" data-key="allahua" onclick="toggleDzikir(this)">
-          <div class="dzikir-checkbox">&#10003;</div>
-          <div class="dzikir-info">
-            <div class="dzikir-name">Allahu Akbar</div>
-            <div class="dzikir-arabic">اللَّهُ أَكْبَرُ</div>
-            <div class="dzikir-count">33x setelah salat</div>
-        </li>
-        <li class="dzikir-item" data-key="istighfar" onclick="toggleDzikir(this)">
-          <div class="dzikir-checkbox">&#10003;</div>
-          <div class="dzikir-info">
-            <div class="dzikir-name">Istighfar</div>
-            <div class="dzikir-arabic">أَسْتَغْفِرُ اللَّهَ</div>
-            <div class="dzikir-count">100x per hari</div>
-        </li>
-        <li class="dzikir-item" data-key="shalawat" onclick="toggleDzikir(this)">
-          <div class="dzikir-checkbox">&#10003;</div>
-          <div class="dzikir-info">
-            <div class="dzikir-name">Shalawat Nabi</div>
-            <div class="dzikir-arabic">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ</div>
-            <div class="dzikir-count">Pagi & Petang</div>
-        </li>
-        <li class="dzikir-item" data-key="taawudz" onclick="toggleDzikir(this)">
-          <div class="dzikir-checkbox">&#10003;</div>
-          <div class="dzikir-info">
-            <div class="dzikir-name">Ta'awudz & Bismillah</div>
-            <div class="dzikir-arabic">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</div>
-            <div class="dzikir-count">Setiap memulai kegiatan</div>
-        </li>
-      </ul>
-      <div class="prog-wrap">
-        <div class="prog-header">
-          <span class="prog-label">Dzikir Hari Ini</span>
-          <span class="prog-pct" id="dzikirPct">0%</span>
+        <div class="prog-wrap">
+            <div class="prog-header">
+                <span class="prog-label">Progress Bacaan</span>
+                <span class="prog-pct" id="quranPct">0%</span>
+            </div>
+            <div class="prog-bar">
+                <div class="prog-fill gold" id="quranBar" style="width:0%"></div>
+            </div>
         </div>
-        <div class="prog-bar"><div class="prog-fill gold" id="dzikirBar" style="width:0%"></div>
-      </div>
-      <div id="dzikirStatus" class="status-badge low">Mulai dzikirmu pagi ini</div>
-      <button class="btn-save" onclick="saveDzikir(this)">Simpan Dzikir</button>
-    </div>
 
+        <div id="quranStatus" class="status-badge low">Masukkan target bacaanmu</div>
+        <button class="btn-save" onclick="saveQuran(this)">
+            <i class="fas fa-save"></i> Simpan Bacaan
+        </button>
+    </div>
 </div>
-
-<!-- TOAST -->
+    </div>
 <div class="toast" id="toast">Data tersimpan!</div>
-
 <script src="script.js"></script>
 </body>
 </html>
