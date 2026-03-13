@@ -6,157 +6,10 @@
     <title>Kalkulator Zakat | Ramadhan Portal</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --glass: rgba(255,255,255,0.08);
-            --glass-border: rgba(255,255,255,0.15);
-        }
-        
-        body { 
-            background: linear-gradient(135deg, #0f1f14 0%, #1B3B18 50%, #0a1810 100%);
-        }
-        
-        .calc-container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
-        
-        .calc-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .calc-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-        }
-        
-        /* Glass Cards */
-        .calc-card {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            transition: all 0.4s ease;
-        }
-        
-        .calc-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(212,175,55,0.3);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-        }
-        
-        .calc-card.left { border-top: 4px solid #D4AF37; }
-        .calc-card.right { border-top: 4px solid #059669; }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-label {
-            display: block;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 0.75rem;
-            font-size: 0.95rem;
-        }
-        
-        .form-input, .form-select {
-            width: 100%;
-            padding: 1rem 1.25rem;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 16px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-size: 1rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-        
-        .form-input::placeholder { color: rgba(255,255,255,0.6); }
-        .form-input:focus, .form-select:focus {
-            outline: none;
-            border-color: #D4AF37;
-            box-shadow: 0 0 0 4px rgba(212,175,55,0.1);
-            background: rgba(255,255,255,0.15);
-        }
-        
-        .form-group.relative .form-input { padding-left: 3rem; }
-        .form-group.relative .input-prefix {
-            position: absolute;
-            left: 1.25rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #D4AF37;
-            font-weight: 600;
-        }
-        
-        .calc-btn {
-            width: 100%;
-            padding: 1.25rem;
-            background: linear-gradient(135deg, #D4AF37, #B8860B);
-            color: #1B3B18;
-            border: none;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(212,175,55,0.3);
-        }
-        
-        .calc-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212,175,55,0.4);
-        }
-        
-        /* Results */
-        .result-item {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-radius: 16px;
-            margin-bottom: 1rem;
-            border-left: 4px solid;
-        }
-        
-        .result-total { border-left-color: #D4AF37; }
-        .result-nisab { border-left-color: #059669; }
-        .result-zakat { border-left-color: #10B981; }
-        
-        .result-label { 
-            font-size: 0.85rem; 
-            color: rgba(255,255,255,0.7); 
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-        }
-        
-        .result-value { 
-            font-size: 1.5rem; 
-            font-weight: 800; 
-            color: white;
-        }
-        
-        .status-wajib { background: rgba(16,185,129,0.2); color: #10B981; }
-        .status-belum { background: rgba(251,191,36,0.2); color: #FBBF24; }
-        
-        .zakat-display {
-            background: linear-gradient(135deg, #D4AF37, #B8860B);
-            border-radius: 24px;
-            padding: 2.5rem;
-            text-align: center;
-            margin-top: 2rem;
-            box-shadow: 0 20px 60px rgba(212,175,55,0.4);
-        }
-        
-        .hidden { display: none !important; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
     <header class="main-header">
         <nav class="navbar">
             <div class="navbar-container">
@@ -175,81 +28,72 @@
         </nav>
     </header>
 
-   <main class="container">
-    <div class="page-header">
-        <div class="page-icon cream">
-            <i class="fas fa-hand-holding-heart"></i>
+    <main class="container">
+        <div class="page-header">
+            <div class="page-icon cream">
+                <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <h1>Kalkulator Zakat</h1>
+            <p>Hitung kewajiban zakat penghasilan atau emas secara otomatis & akurat</p>
         </div>
-        <h1>Kalkulator Zakat</h1>
-        <p>Hitung kewajiban zakat penghasilan atau emas Anda secara otomatis.</p>
-    </div>
 
-<div class="calc-grid">
-        <div class="calc-card left">
-            <h2 class="calc-title">Parameter Input</h2>
-            
-            <div class="form-group">
-                <label class="form-label">Jenis Zakat</label>
-                <select id="zakatType" class="form-select">
-                    <option value="penghasilan">Zakat Penghasilan (Per Tahun)</option>
-                    <option value="emas">Zakat Emas / Simpanan</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Harga Emas Saat Ini (Per Gram)</label>
-                <input type="number" id="goldPrice" class="form-input" placeholder="Contoh: 1200000">
-            </div>
-
-            <div id="penghasilanGroup">
+        <div class="calc-grid">
+            <div class="calc-card left">
+                <h2 class="calc-title">Input Parameter</h2>
                 <div class="form-group">
-                    <label class="form-label">Total Penghasilan Setahun</label>
-                    <input type="number" id="income" class="form-input" placeholder="Contoh: 150000000">
+                    <label class="form-label">Jenis Zakat</label>
+                    <select id="zakatType" class="form-select">
+                        <option value="penghasilan">💰 Zakat Penghasilan (Tahunan)</option>
+                        <option value="emas">✨ Zakat Emas/Perhiasan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Harga Emas Per Gram (Rp)</label>
+                    <input type="number" id="goldPrice" class="form-input" value="1250000" placeholder="1.250.000">
+                </div>
+                <div id="penghasilanGroup">
+                    <div class="form-group">
+                        <label class="form-label">Total Penghasilan 1 Tahun (Rp)</label>
+                        <input type="number" id="income" class="form-input" placeholder="150.000.000">
+                    </div>
+                </div>
+                <div id="emasGroup" class="hidden">
+                    <div class="form-group">
+                        <label class="form-label">Total Berat Emas (gram)</label>
+                        <input type="number" id="goldWeight" class="form-input" step="0.01" placeholder="100">
+                    </div>
+                </div>
+                <button id="calcBtn" class="calc-btn">
+                    <i class="fas fa-calculator"></i> Hitung Zakat Saya
+                </button>
+            </div>
+
+            <div class="calc-card right" id="resultSection" style="display: none;">
+                <h2 class="calc-title">Hasil Perhitungan</h2>
+                <div class="result-item result-total">
+                    <div class="result-label">Total Harta</div>
+                    <div id="totalHarta" class="result-value">Rp 0</div>
+                </div>
+                <div class="result-item result-nisab">
+                    <div class="result-label">Nisab (85 gram emas)</div>
+                    <div id="nisabValue" class="result-value">Rp 0</div>
+                </div>
+                <div class="status-container">
+                    <span id="statusBadge" class="status-badge">Loading...</span>
+                </div>
+                <div id="zakatResultBox" class="zakat-display" style="display: none;">
+                    <div class="zakat-title">Zakat Wajib Dibayar</div>
+                    <div id="zakatAmount" class="zakat-value">Rp 0</div>
                 </div>
             </div>
-
-            <div id="emasGroup" class="hidden">
-                <div class="form-group">
-                    <label class="form-label">Total Berat Emas (Gram)</label>
-                    <input type="number" id="goldWeight" class="form-input" placeholder="Contoh: 100">
-                </div>
-            </div>
-
-            <button id="calcBtn" class="calc-btn">
-                <i class="fas fa-calculator"></i> Hitung Zakat
-            </button>
         </div>
-
-        <div class="calc-card right" id="resultSection">
-            <h2 class="calc-title">Hasil Perhitungan Zakat</h2>
-            
-            <div class="result-item result-total">
-                <div class="result-label">Total Harta</div>
-                <div id="totalHarta" class="result-value">Rp 0</div>
-            </div>
-
-            <div class="result-item result-nisab">
-                <div class="result-label">Ambang Batas Nisab</div>
-                <div id="nisabValue" class="result-value">Rp 0</div>
-            </div>
-
-            <div class="status-container">
-                <span id="statusBadge" class="status-badge"></span>
-            </div>
-
-            <div id="zakatResultBox" class="zakat-display">
-                <div class="zakat-title">Zakat yang Wajib Dibayar</div>
-                <div id="zakatAmount" class="zakat-value">Rp 0</div>
-            </div>
-        </div>
-    </div>
-</main>
+    </main>
 
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-brand"><i class="fas fa-mosque"></i> Ramadhan Portal</div>
-            <p class="footer-tagline">Semangat Beribadah di Bulan Suci</p>
-            <p class="footer-copyright">© 2026 | Created with <i class="fas fa-heart" style="color: #e74c3c;"></i> by Ayu Anggaraini</p>
+            <p class="footer-tagline">Semangat Beribadah di Bulan Suci Ramadhan</p>
+            <p class="footer-copyright">© 2026 Ayu Anggaraini</p>
         </div>
     </footer>
     <script src="script.js"></script>

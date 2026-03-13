@@ -1,106 +1,77 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Elemen Navbar Mobile
-    const navbarToggle = document.getElementById('navbarToggle');
-    const navbarMenu = document.getElementById('navbarMenu');
-    if (navbarToggle && navbarMenu) {
-        navbarToggle.addEventListener('click', () => {
-            navbarMenu.classList.toggle('active');
-        });
-    }
+    // Mobile Navbar
+    const toggleBtn = document.getElementById('navbarToggle');
+    const menu = document.getElementById('navbarMenu');
+    toggleBtn.addEventListener('click', () => menu.classList.toggle('active'));
 
-    // 2. Elemen Form & Input
+    // Elements
     const zakatType = document.getElementById('zakatType');
     const incomeGroup = document.getElementById('penghasilanGroup');
     const emasGroup = document.getElementById('emasGroup');
-    const goldPriceInput = document.getElementById('goldPrice');
-    const incomeInput = document.getElementById('income');
-    const goldWeightInput = document.getElementById('goldWeight');
+    const goldPrice = document.getElementById('goldPrice');
+    const income = document.getElementById('income');
+    const goldWeight = document.getElementById('goldWeight');
     const calcBtn = document.getElementById('calcBtn');
-    
-    // 3. Elemen Hasil
     const resultSection = document.getElementById('resultSection');
-    const totalHartaText = document.getElementById('totalHarta');
-    const nisabValueText = document.getElementById('nisabValue');
-    const statusBadge = document.getElementById('statusBadge');
-    const zakatResultBox = document.getElementById('zakatResultBox');
-    const zakatAmountText = document.getElementById('zakatAmount');
 
-    // Set Default Harga Emas
-    if (goldPriceInput) goldPriceInput.value = 1250000;
+    // Format currency
+    const formatRupiah = (num) => 'Rp ' + Math.round(num).toLocaleString('id-ID');
 
-    // Fungsi Format Rupiah
-    const formatIDR = (num) => "Rp " + Math.round(num).toLocaleString('id-ID');
+    // Reset forms
+    const resetForms = () => {
+        income.value = '';
+        goldWeight.value = '';
+    };
 
-    // 4. Logika Ganti Tipe Zakat
-    if (zakatType) {
-        zakatType.addEventListener('change', function() {
-            if (this.value === 'emas') {
-                incomeGroup.classList.add('hidden');
-                emasGroup.classList.remove('hidden');
-            } else {
-                incomeGroup.classList.remove('hidden');
-                emasGroup.classList.add('hidden');
-            }
-            // Sembunyikan hasil saat ganti kategori
-            zakatResultBox.style.display = 'none';
-            statusBadge.textContent = '';
-        });
-    }
+    // Form switch
+    zakatType.addEventListener('change', function() {
+        resetForms();
+        resultSection.style.display = 'none';
+        if (this.value === 'emas') {
+            incomeGroup.classList.add('hidden');
+            emasGroup.classList.remove('hidden');
+        } else {
+            incomeGroup.classList.remove('hidden');
+            emasGroup.classList.add('hidden');
+        }
+    });
 
-    // 5. Logika Perhitungan
-    if (calcBtn) {
-        calcBtn.addEventListener('click', function() {
-            const goldPrice = parseFloat(goldPriceInput.value) || 0;
-            const income = parseFloat(incomeInput.value) || 0;
-            const goldWeight = parseFloat(goldWeightInput.value) || 0;
-            const type = zakatType.value;
+    // Calculation
+    calcBtn.addEventListener('click', function() {
+        const price = parseFloat(goldPrice.value) || 0;
+        const inc = parseFloat(income.value) || 0;
+        const weight = parseFloat(goldWeight.value) || 0;
+        const type = zakatType.value;
 
-            // Validasi Dasar
-            if (goldPrice <= 0) {
-                alert("Mohon masukkan harga emas yang valid.");
-                return;
-            }
+        // Validation
+        if (!price) return alert('Masukkan harga emas!');
+        if (type === 'penghasilan' && !inc) return alert('Masukkan penghasilan!');
+        if (type === 'emas' && !weight) return alert('Masukkan berat emas!');
 
-            // Hitung Nisab (85 gram emas)
-            const nisabEmas = 85;
-            const nisabRupiah = goldPrice * nisabEmas;
-            
-            // Hitung Total Harta
-            let totalHarta = (type === 'penghasilan') ? income : (goldWeight * goldPrice);
+        const nisab = price * 85; // 85 gram
+        const harta = type === 'penghasilan' ? inc : (weight * price);
 
-            if (totalHarta <= 0) {
-                alert("Mohon masukkan jumlah penghasilan atau berat emas.");
-                return;
-            }
+        // Update UI
+        document.getElementById('totalHarta').textContent = formatRupiah(harta);
+        document.getElementById('nisabValue').textContent = formatRupiah(nisab);
+        resultSection.style.display = 'block';
 
-            // Update Teks Hasil
-            totalHartaText.textContent = formatIDR(totalHarta);
-            nisabValueText.textContent = formatIDR(nisabRupiah);
+        const badge = document.getElementById('statusBadge');
+        const zakatBox = document.getElementById('zakatResultBox');
+        const amount = document.getElementById('zakatAmount');
 
-            // Cek Kewajiban Zakat
-            if (totalHarta >= nisabRupiah) {
-                const wajibBayar = totalHarta * 0.025; // 2.5%
-                
-                statusBadge.textContent = "✅ WAJIB ZAKAT";
-                statusBadge.className = "status-badge status-wajib";
-                statusBadge.style.padding = "10px 20px";
-                statusBadge.style.borderRadius = "12px";
-                statusBadge.style.display = "inline-block";
-                
-                zakatResultBox.style.display = 'block';
-                zakatAmountText.textContent = formatIDR(wajibBayar);
-            } else {
-                statusBadge.textContent = "⏳ BELUM WAJIB ZAKAT";
-                statusBadge.className = "status-badge status-belum";
-                statusBadge.style.padding = "10px 20px";
-                statusBadge.style.borderRadius = "12px";
-                statusBadge.style.display = "inline-block";
-                
-                zakatResultBox.style.display = 'none';
-            }
+        if (harta >= nisab) {
+            const zakat = harta * 0.025;
+            badge.textContent = '✅ WAJIB ZAKAT';
+            badge.className = 'status-badge status-wajib';
+            zakatBox.style.display = 'block';
+            amount.textContent = formatRupiah(zakat);
+        } else {
+            badge.textContent = '⏳ BELUM NISAB';
+            badge.className = 'status-badge status-belum';
+            zakatBox.style.display = 'none';
+        }
 
-            // Scroll otomatis ke hasil (untuk Mobile)
-            resultSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
+        resultSection.scrollIntoView({ behavior: 'smooth' });
+    });
 });
