@@ -1,55 +1,269 @@
 /* ===================================
-   Variabel Warna & Font 
+   Misi1 - Doa Sahur & Buka Puasa
+   Styles - Match with Main Portal
    =================================== */
+
 :root {
+    --primary: #1B3B18;
+    --primary-light: #2d5a2d;
+    --secondary: #D4AF37;
+    --secondary-light: #F5D76E;
+    --secondary-dark: #B8860B;
+    --accent: #FDF5E6;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --dark-green: #0a1810;
+    --text-muted: rgba(255, 255, 255, 0.7);
     --primary-green: #065f46;
     --light-green: #ecfdf5;
-    --green-border: #059669;
     --gold: #d4a825;
     --gold-light: #fef9e7;
     --amber: #b45309;
     --text-dark: #1e293b;
     --text-medium: #475569;
-    --text-light: #64748b;
     --bg-body: #fafaf9;
-    --bg-card: #ffffff;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* ===================================
-   Reset Dasar 
-   =================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background-color: var(--bg-body);
-    color: var(--text-dark);
-    line-height: 1.7;
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary) 50%, var(--dark-green) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.bg-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* ===================================
-   Container & Layout 
+   Navbar Styles
    =================================== */
-.container {
-    max-width: 800px;
+
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(10, 24, 16, 0.98) 0%, rgba(27, 59, 24, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.navbar {
+    width: 100%;
+}
+
+.navbar-container {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px 60px;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.brand-icon i {
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.brand-icon.small {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+}
+
+.brand-icon.small i {
+    font-size: 1rem;
+}
+
+.brand-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--secondary);
+    letter-spacing: 0.5px;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.25rem;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--secondary);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-link:hover {
+    background: rgba(212, 175, 55, 0.12);
+    color: var(--secondary);
+}
+
+.nav-link:hover::before {
+    width: 50%;
+}
+
+.nav-link.active {
+    background: rgba(212, 175, 55, 0.18);
+    color: var(--secondary);
+}
+
+.nav-link.active::before {
+    width: 50%;
+}
+
+.nav-link i {
+    font-size: 0.9rem;
+}
+
+.navbar-toggle {
+    display: none;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+    border: none;
+    color: var(--primary);
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.navbar-toggle:hover {
+    transform: scale(1.05);
 }
 
 /* ===================================
-   Quick Navigation 
+   Main Container
    =================================== */
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===================================
+   Page Header
+   =================================== */
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.page-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.page-icon.green {
+    background: linear-gradient(135deg, rgba(27, 59, 24, 0.8) 0%, rgba(15, 35, 16, 0.9) 100%);
+    color: var(--secondary);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+}
+
+.page-icon i {
+    font-size: 2rem;
+}
+
+.page-header h1 {
+    font-family: 'Amiri', serif;
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* ===================================
+   Quick Navigation
+   =================================== */
+
 .quick-nav {
     display: flex;
-    gap: 15px;
-    margin-bottom: 40px;
+    gap: 1rem;
+    margin-bottom: 3rem;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -59,135 +273,50 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: white;
-    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.25rem 1.75rem;
     border-radius: 16px;
     text-decoration: none;
-    box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
-    min-width: 140px;
-    gap: 10px;
+    min-width: 120px;
+    gap: 0.75rem;
 }
 
 .nav-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    border-color: var(--secondary);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nav-card i {
-    font-size: 1.8rem;
-    color: var(--primary-green);
-}
-
-.nav-card:nth-child(2) i {
-    color: var(--gold);
-}
-
-.nav-card:nth-child(3) i {
-    color: #8b5cf6;
+    font-size: 1.5rem;
+    color: var(--secondary);
 }
 
 .nav-card span {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--text-dark);
-}
-
-@media (max-width: 640px) {
-    .quick-nav {
-        gap: 10px;
-    }
-
-    .nav-card {
-        padding: 16px 20px;
-        min-width: 100px;
-    }
-
-    .nav-card i {
-        font-size: 1.5rem;
-    }
-
-    .nav-card span {
-        font-size: 0.8rem;
-    }
+    color: var(--white);
 }
 
 /* ===================================
-   Header 
+   Prayer Category
    =================================== */
-.main-header {
-    background: linear-gradient(135deg, var(--primary-green) 0%, #047857 100%);
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-    position: relative;
-    overflow: hidden;
-}
 
-.back-portal {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    z-index: 10;
-    font-weight: 500;
-}
-
-.back-portal:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--primary-green);
-    transform: translateX(-5px);
-}
-
-.back-portal i {
-    font-size: 0.9rem;
-}
-
-.header-decoration {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    opacity: 0.9;
-}
-
-.main-header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: -0.5px;
-}
-
-.main-header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-/* ===================================
-   Section Categories 
-   =================================== */
 .prayer-category {
-    margin-top: 50px;
+    margin-top: 2rem;
 }
 
 .category-header {
     display: flex;
     align-items: center;
-    gap: 18px;
-    margin-bottom: 28px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #e5e7eb;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .category-icon {
@@ -202,50 +331,57 @@ body {
 }
 
 .sahur-header .category-icon {
-    background: linear-gradient(135deg, var(--light-green), #d1fae5);
-    color: var(--primary-green);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(184, 134, 11, 0.3) 100%);
+    color: var(--secondary);
+    border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .buka-header .category-icon {
-    background: linear-gradient(135deg, var(--gold-light), #fef3c7);
-    color: var(--amber);
+    background: linear-gradient(135deg, rgba(253, 245, 230, 0.15) 0%, rgba(253, 245, 230, 0.05) 100%);
+    color: var(--accent);
+    border: 1px solid rgba(253, 245, 230, 0.25);
 }
 
 .category-header h2 {
+    font-family: 'Amiri', serif;
     font-size: 1.6rem;
     font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 4px;
+    color: var(--white);
+    margin-bottom: 0.25rem;
 }
 
 .category-subtitle {
     font-size: 0.95rem;
-    color: var(--text-light);
+    color: var(--text-muted);
 }
 
 /* ===================================
-   Prayer Cards 
+   Prayer Cards
    =================================== */
+
 .prayer-card {
-    background: var(--bg-card);
-    border-radius: 16px;
-    padding: 28px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow-md);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
 }
 
 .prayer-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    border-color: rgba(212, 175, 55, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .sahur-card {
-    border-left: 4px solid var(--green-border);
+    border-left: 4px solid var(--secondary);
 }
 
 .buka-card {
-    border-left: 4px solid var(--gold);
+    border-left: 4px solid var(--secondary-dark);
 }
 
 .prayer-label,
@@ -255,46 +391,50 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 6px 12px;
+    padding: 0.5rem 1rem;
     border-radius: 20px;
-    margin-bottom: 18px;
+    margin-bottom: 1.25rem;
 }
 
 .sahur-card .prayer-label {
-    background: var(--light-green);
-    color: var(--primary-green);
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--secondary);
+    border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .buka-card .prayer-source {
-    background: var(--gold-light);
-    color: var(--amber);
+    background: rgba(253, 245, 230, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(253, 245, 230, 0.2);
 }
 
 /* ===================================
-   Arabic Text Styling 
+   Arabic Text Styling
    =================================== */
+
 .arabic-text {
     font-family: 'Amiri', 'Traditional Arabic', serif;
-    font-size: 2rem;
+    font-size: 1.75rem;
     text-align: right;
     direction: rtl;
     line-height: 2;
-    margin-bottom: 22px;
-    color: #0f172a;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    margin-bottom: 1.5rem;
+    color: var(--secondary);
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 50%, var(--secondary-dark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 /* ===================================
-   Translation Box 
+   Translation Box
    =================================== */
+
 .translation-box {
-    background: #f8fafc;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    padding: 20px;
-    border: 1px solid #e2e8f0;
+    padding: 1.5rem;
 }
 
 .label {
@@ -302,110 +442,176 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: var(--text-light);
-    margin-bottom: 6px;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
 }
 
 .latin-text {
     font-size: 1rem;
     font-style: italic;
-    color: var(--text-medium);
+    color: var(--white);
     line-height: 1.8;
 }
 
 hr {
     border: 0;
-    border-top: 1px solid #cbd5e1;
-    margin: 14px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 1rem 0;
 }
 
 .meaning-text {
     font-size: 1rem;
-    color: var(--text-dark);
+    color: var(--white);
     line-height: 1.8;
 }
 
 /* ===================================
-   Footer 
+   Footer
    =================================== */
+
 .main-footer {
-    text-align: center;
-    padding: 40px 20px;
-    color: var(--text-light);
-    font-size: 0.9rem;
-    border-top: 1px solid #e5e7eb;
-    background: white;
+    background: linear-gradient(135deg, rgba(10, 24, 16, 0.95) 0%, rgba(27, 59, 24, 0.95) 100%);
+    padding: 2rem 1.5rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    position: relative;
+    z-index: 1;
 }
 
-.footer-decoration {
-    font-size: 1.8rem;
-    color: var(--primary-green);
-    margin-bottom: 12px;
-    opacity: 0.7;
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Amiri', serif;
+    font-size: 1.2rem;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.footer-copyright {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.footer-copyright i {
+    color: #e74c3c;
 }
 
 /* ===================================
-   Responsivitas (Mobile Friendly) 
+   Animations
    =================================== */
-@media (max-width: 640px) {
-    .main-header {
-        padding: 45px 20px;
-    }
 
-    .main-header h1 {
-        font-size: 1.8rem;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-
-    .main-header p {
-        font-size: 1rem;
-    }
-
-    .container {
-        padding: 30px 16px 50px;
-    }
-
-    .category-header {
-        gap: 14px;
-    }
-
-    .category-icon {
-        width: 48px;
-        height: 48px;
-        font-size: 1.3rem;
-    }
-
-    .category-header h2 {
-        font-size: 1.35rem;
-    }
-
-    .prayer-card {
-        padding: 20px;
-        border-radius: 12px;
-    }
-
-    .arabic-text {
-        font-size: 1.5rem;
-        line-height: 2.2;
-    }
-
-    .translation-box {
-        padding: 16px;
-    }
-
-    .latin-text,
-    .meaning-text {
-        font-size: 0.95rem;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@media (max-width: 400px) {
+/* ===================================
+   Responsive Styles
+   =================================== */
+
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0.75rem 1rem;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(10, 24, 16, 0.98);
+        padding: 1rem;
+        gap: 0.5rem;
+        border-top: 1px solid rgba(212, 175, 55, 0.15);
+        display: none;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 1rem;
+    }
+
+    .brand-text {
+        font-size: 1.2rem;
+    }
+
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .quick-nav {
+        gap: 0.75rem;
+    }
+
+    .nav-card {
+        padding: 1rem 1.25rem;
+        min-width: 100px;
+    }
+
+    .prayer-card {
+        padding: 1.5rem;
+    }
+
     .arabic-text {
-        font-size: 1.25rem;
+        font-size: 1.35rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .page-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .page-icon i {
+        font-size: 1.5rem;
     }
 
     .category-header {
         flex-direction: column;
         align-items: flex-start;
-        text-align: left;
+        gap: 1rem;
+    }
+
+    .arabic-text {
+        font-size: 1.15rem;
     }
 }

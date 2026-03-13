@@ -43,7 +43,17 @@ async function fetchJadwal(cityId) {
     } catch (error) {
         console.error('Error fetching data:', error);
         errorElement.classList.remove('hidden');
-        errorElement.textContent = 'Gagal memuat data. Silakan coba lagi atau pilih kota lain.';
+        // Fallback data Jakarta sample
+        const fallbackData = [
+          {tanggal: '1 Ramadhan', date: '2025-02-28', imsak: '04:20', subuh: '04:30', dzuhur: '12:00', ashar: '15:15', maghrib: '18:00', isya: '19:15'},
+          {tanggal: '2 Ramadhan', date: '2025-03-01', imsak: '04:19', subuh: '04:29', dzuhur: '12:00', ashar: '15:16', maghrib: '18:01', isya: '19:16'},
+          {tanggal: '3 Ramadhan', date: '2025-03-02', imsak: '04:18', subuh: '04:28', dzuhur: '12:01', ashar: '15:17', maghrib: '18:02', isya: '19:17'},
+          {tanggal: '4 Ramadhan', date: '2025-03-03', imsak: '04:17', subuh: '04:27', dzuhur: '12:01', ashar: '15:18', maghrib: '18:03', isya: '19:18'},
+          {tanggal: '5 Ramadhan', date: '2025-03-04', imsak: '04:16', subuh: '04:26', dzuhur: '12:02', ashar: '15:19', maghrib: '18:04', isya: '19:19'}
+        ];
+        renderTable(fallbackData);
+        errorElement.classList.remove('hidden');
+        errorElement.innerHTML = '<i class="fas fa-database mr-2"></i>Menggunakan data contoh Jakarta (API offline)';
     } finally {
         loadingElement.classList.add('hidden');
     }

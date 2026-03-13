@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ramadhan Tracker</title>
+<title>Ramadhan Tracker - Ramadhan Kareem</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
@@ -33,7 +32,6 @@
     <div class="logo-wrap">
         <div class="header-title">Ramadhan Tracker</div>
         <div class="header-sub">Panduan Ibadahmu Setiap Hari</div>
-    </div>
   </header>
 
   <!-- DAILY SUMMARY -->
@@ -44,12 +42,10 @@
         <circle class="circle-prog" id="circleProgress" cx="28" cy="28" r="26"/>
       </svg>
       <div class="circle-text" id="summaryPct">0%</div>
-    </div>
     <div class="summary-info">
       <div class="summary-label">Progress Hari Ini</div>
       <div class="summary-status" id="summaryStatus">Bismillah, mulai ibadahmu</div>
       <div class="summary-date" id="summaryDate"></div>
-    </div>
   </div>
 
   <!-- TAB NAV -->
@@ -109,12 +105,11 @@
           <span class="prog-label">Kelengkapan Shalat</span>
           <span class="prog-pct" id="shalatPct">0%</span>
         </div>
-        <div class="prog-bar"><div class="prog-fill" id="shalatBar" style="width:0%"></div></div>
+        <div class="prog-bar"><div class="prog-fill" id="shalatBar" style="width:0%"></div>
       </div>
       <div id="shalatStatus" class="status-badge low">Belum ada salat yang dicatat</div>
       <button class="btn-save" onclick="saveShalat(this)">Simpan Shalat</button>
     </div>
-  </div>
 
   <!-- ==================== TAB 2: QURAN ==================== -->
   <div class="tab-panel" id="tab-quran">
@@ -129,18 +124,16 @@
           <label class="input-label">Sudah Dibaca</label>
           <input type="number" id="quranRead" placeholder="mis. 12" min="0" max="604" oninput="calcQuran()">
         </div>
-      </div>
       <div class="quran-big-display">
         <div class="quran-pages-shown" id="quranDisplay">- / -</div>
         <div class="quran-pages-label">halaman hari ini</div>
-      </div>
       <div class="divider"></div>
       <div class="prog-wrap">
         <div class="prog-header">
           <span class="prog-label">Progress Bacaan</span>
           <span class="prog-pct" id="quranPct">0%</span>
         </div>
-        <div class="prog-bar"><div class="prog-fill gold" id="quranBar" style="width:0%"></div></div>
+        <div class="prog-bar"><div class="prog-fill gold" id="quranBar" style="width:0%"></div>
       </div>
       <div id="quranStatus" class="status-badge low">Masukkan target dan halaman dibaca</div>
       <div class="toggle-done" id="quranDoneToggle" onclick="toggleQuranDone()">
@@ -149,7 +142,6 @@
       </div>
       <button class="btn-save" onclick="saveQuran(this)">Simpan Bacaan</button>
     </div>
-  </div>
 
   <!-- ==================== TAB 3: PUASA ==================== -->
   <div class="tab-panel" id="tab-puasa">
@@ -160,17 +152,15 @@
           <span><i class="fas fa-moon"></i></span>
           <span id="ramadhanDayText">Hari ke-<strong id="ramadhanDay">-</strong> Ramadhan</span>
         </div>
-      </div>
       <div class="today-fast-row" id="todayFastRow" onclick="toggleTodayFast()">
         <div class="big-check" id="todayFastCheck">&#10003;</div>
         <div class="today-fast-label" id="todayFastLabel">Sudah puasa hari ini?</div>
-      </div>
       <div class="prog-wrap">
         <div class="prog-header">
           <span class="prog-label">Puasa 30 Hari</span>
           <span class="prog-pct" id="osiasiPct">0 / 30</span>
         </div>
-        <div class="prog-bar"><div class="prog-fill rose" id="puasabar" style="width:0%"></div></div>
+        <div class="prog-bar"><div class="prog-fill rose" id="puasabar" style="width:0%"></div>
       </div>
       <div class="divider"></div>
       <div class="info-row">
@@ -178,10 +168,9 @@
         <span class="info-val" style="font-size:0.78rem;color:var(--cream-dim)">Tap tanggal untuk toggle</span>
       </div>
       <div class="cal-grid" id="calGrid"></div>
-      <div id="puasaStatus" class="status-badge low">Semangat berpuasa, insyaAllah!</div>
+      <div id="ciosaStatus" class="status-badge low">Semangat berpuasa, insyaAllah!</div>
       <button class="btn-save" onclick="savePuasa(this)">Simpan Puasa</button>
     </div>
-  </div>
 
   <!-- ==================== TAB 4: DZIKIR ==================== -->
   <div class="tab-panel" id="tab-dzikir">
@@ -194,7 +183,6 @@
             <div class="dzikir-name">Subhanallah</div>
             <div class="dzikir-arabic">سُبْحَانَ اللَّهِ</div>
             <div class="dzikir-count">33x setelah salat</div>
-          </div>
         </li>
         <li class="dzikir-item" data-key="alhamdulillah" onclick="toggleDzikir(this)">
           <div class="dzikir-checkbox">&#10003;</div>
@@ -202,7 +190,6 @@
             <div class="dzikir-name">Alhamdulillah</div>
             <div class="dzikir-arabic">الْحَمْدُ لِلَّهِ</div>
             <div class="dzikir-count">33x setelah salat</div>
-          </div>
         </li>
         <li class="dzikir-item" data-key="allahua" onclick="toggleDzikir(this)">
           <div class="dzikir-checkbox">&#10003;</div>
@@ -210,7 +197,6 @@
             <div class="dzikir-name">Allahu Akbar</div>
             <div class="dzikir-arabic">اللَّهُ أَكْبَرُ</div>
             <div class="dzikir-count">33x setelah salat</div>
-          </div>
         </li>
         <li class="dzikir-item" data-key="istighfar" onclick="toggleDzikir(this)">
           <div class="dzikir-checkbox">&#10003;</div>
@@ -218,7 +204,6 @@
             <div class="dzikir-name">Istighfar</div>
             <div class="dzikir-arabic">أَسْتَغْفِرُ اللَّهَ</div>
             <div class="dzikir-count">100x per hari</div>
-          </div>
         </li>
         <li class="dzikir-item" data-key="shalawat" onclick="toggleDzikir(this)">
           <div class="dzikir-checkbox">&#10003;</div>
@@ -226,7 +211,6 @@
             <div class="dzikir-name">Shalawat Nabi</div>
             <div class="dzikir-arabic">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ</div>
             <div class="dzikir-count">Pagi & Petang</div>
-          </div>
         </li>
         <li class="dzikir-item" data-key="taawudz" onclick="toggleDzikir(this)">
           <div class="dzikir-checkbox">&#10003;</div>
@@ -234,7 +218,6 @@
             <div class="dzikir-name">Ta'awudz & Bismillah</div>
             <div class="dzikir-arabic">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</div>
             <div class="dzikir-count">Setiap memulai kegiatan</div>
-          </div>
         </li>
       </ul>
       <div class="prog-wrap">
@@ -242,12 +225,11 @@
           <span class="prog-label">Dzikir Hari Ini</span>
           <span class="prog-pct" id="dzikirPct">0%</span>
         </div>
-        <div class="prog-bar"><div class="prog-fill gold" id="dzikirBar" style="width:0%"></div></div>
+        <div class="prog-bar"><div class="prog-fill gold" id="dzikirBar" style="width:0%"></div>
       </div>
       <div id="dzikirStatus" class="status-badge low">Mulai dzikirmu pagi ini</div>
       <button class="btn-save" onclick="saveDzikir(this)">Simpan Dzikir</button>
     </div>
-  </div>
 
 </div>
 
@@ -257,4 +239,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-

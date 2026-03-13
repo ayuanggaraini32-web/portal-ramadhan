@@ -3,32 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Imsakiyah Ramadhan</title>
+<title>Jadwal Imsakiyah - Ramadhan Kareem</title>
+    <meta name="theme-color" content="#1B3B18">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <header>
-        <a href="../index.html" class="back-portal">
-            <i class="fas fa-arrow-left"></i> Kembali
-        </a>
-        <div class="header-content">
-            <i class="fas fa-mosque"></i>
+    <!-- Decorative Background -->
+    <div class="bg-pattern"></div>
+
+    <!-- Header with Navigation -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="../index.html" class="navbar-brand">
+                    <div class="brand-icon">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <span class="brand-text">Ramadhan Portal</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Navigation Menu -->
+                <ul class="navbar-menu" id="navbarMenu">
+                    <li><a href="../index.html" class="nav-link">
+                        <i class="fas fa-home"></i> <span>Home</span>
+                    </a></li>
+                    <li><a href="index.html" class="nav-link active">
+                        <i class="fas fa-clock"></i> <span>Jadwal Imsakiyah</span>
+                    </a></li>
+                    <li><a href="../misi1/doa-harian.html" class="nav-link">
+                        <i class="fas fa-book-quran"></i> <span>Doa Harian</span>
+                    </a></li>
+                    <li><a href="../misi1/index.html" class="nav-link">
+                        <i class="fas fa-moon"></i> <span>Doa Sahur & Buka</span>
+                    </a></li>
+                    <li><a href="../misi1/dzikir.html" class="nav-link">
+                        <i class="fas fa-pray"></i> <span>Dzikir</span>
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-icon green">
+                <i class="fas fa-clock"></i>
+            </div>
             <h1>Jadwal Imsakiyah Ramadhan</h1>
             <p>Pilih kota untuk melihat jadwal puasa bulan ini</p>
         </div>
-    </header>
-
-    <main>
 
         <section class="controls">
             <label for="city">
-                <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>Pilih Kota
+                <i class="fas fa-map-marker-alt"></i> Pilih Kota
             </label>
             <select id="city">
                 <option value="1301">Jakarta</option>
@@ -45,8 +86,8 @@
         </section>
 
         <section id="status">
-            <p id="loading" class="hidden">Memuat data...</p>
-            <p id="error" class="hidden">Gagal memuat data. Silakan coba lagi.</p>
+            <p id="loading" class="hidden"><i class="fas fa-spinner fa-spin"></i> Memuat data...</p>
+            <p id="error" class="hidden"><i class="fas fa-exclamation-triangle"></i> Gagal memuat data. Silakan coba lagi.</p>
         </section>
 
         <section class="table-container">
@@ -70,12 +111,32 @@
 
     </main>
 
-    <footer>
-        <p>© 2026 <i class="fas fa-heart" style="color: #e74c3c;"></i> Ramadhan Web | Data dari API myQuran</p>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="brand-icon small">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <span>Ramadhan Portal</span>
+            </div>
+            <p class="footer-tagline">Semangat Beribadah di Bulan Suci</p>
+            <p class="footer-copyright">
+                &copy; 2026 Project Page Ramadhan | Created with <i class="fas fa-heart"></i> by Ayu Anggaraini
+            </p>
+        </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('navbarToggle').addEventListener('click', function() {
+            document.getElementById('navbarMenu').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+    </script>
 
     <script src="script.js"></script>
 
 </body>
 </html>
-
