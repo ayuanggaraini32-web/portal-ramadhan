@@ -109,85 +109,71 @@ function saveQuran(btn) {
 }
 
 // ============================================================
-// PUASA
-// ============================================================
+ // PUASA CHECKLIST (1-30 Hari)
+ // ============================================================
 let puasaData = load('puasa_all', Array(30).fill(false));
-let todayFasted = load('upaya_today_' + dk, false);
 const ramDay = getRamadhanDay() - 1;
 
 function initPuasa() {
   document.getElementById('ramadhanDay').textContent = ramDay + 1;
-  if (todayFasted) {
-    puasaData[ramDay] = true;
-    updateTodayFastUI(true);
-  }
-  buildCalendar();
+  buildPuasaList();
   updatePuasaUI();
 }
 
-function updateTodayFastUI(state) {
-  document.getElementById('todayFastRow').classList.toggle('done', state);
-  document.getElementById('todayFastLabel').textContent = state ? '✅ Alhamdulillah, sudah puasa hari ini!' : '☀️ Sudah puasa hari ini?';
-}
-
-function toggleTodayFast() {
-  todayFasted = !todayFasted;
-  puasaData[ramDay] = todayFasted;
-  updateTodayFastUI(todayFasted);
-  buildCalendar();
-  updatePuasaUI();
-}
-
-function buildCalendar() {
-  const grid = document.getElementById('calGrid');
-  grid.innerHTML = '';
+function buildPuasaList() {
+  const list = document.getElementById('puasaList');
+  list.innerHTML = '';
   for (let i = 0; i < 30; i++) {
-    const cell = document.createElement('div');
-    cell.className = 'cal-cell';
-    const dayNum = i + 1;
-    const isPast = i <= ramDay;
-    const isToday = i === ramDay;
-    const isFuture = i > ramDay;
-    if (isToday) cell.classList.add('today');
-    if (isFuture) cell.classList.add('future');
-    if (puasaData[i]) {
-      cell.classList.add('fasted');
-      cell.textContent = '✓';
-    } else {
-      cell.textContent = dayNum;
-    }
-    if (!isFuture) {
-      cell.onclick = () => {
-puasaData[i] = !puasaData[i];
-        if (i === ramDay) { todayFasted = puasaData[i]; updateTodayFastUI(todayFasted); }
-        buildCalendar(); updatePuasaUI();
-      };
-    }
-    cell.title = 'Hari ke-' + dayNum;
-    grid.appendChild(cell);
+    const li = document.createElement('li');
+    li.className = 'puasa-item';
+    li.dataset.day = i + 1;
+    li.onclick = () => togglePuasa(li);
+    li.innerHTML = `
+      <div class="puasa-checkbox"><i class="fas fa-check"></i></div>
+      <div class="puasa-details">
+        <div class="puasa-name">Hari ke-${i+1}</div>
+        <div class="puasa-arabic">يَوْم ${i+1}</div>
+      </div>
+      ${i+1 === ramDay ? '<div class="today-badge"><i class="fas fa-star"></i> Hari Ini</div>' : ''}
+    `;
+    if (puasaData[i]) li.classList.add('checked');
+    list.appendChild(li);
   }
+}
+
+function togglePuasa(el) {
+  const day = parseInt(el.dataset.day) - 1;
+  puasaData[day] = !puasaData[day];
+  el.classList.toggle('checked', puasaData[day]);
+  updatePuasaUI();
 }
 
 function updatePuasaUI() {
   const done = puasaData.filter(Boolean).length;
   const pct = Math.round((done / 30) * 100);
-  const puasaPctEl = document.getElementById('osiasiPct');
-  if (puasaPctEl) {
-    puasaPctEl.textContent = done + ' / 30';
-  }
-  document.getElementById('puasabar').style.width = pct + '%';
+  document.getElementById('puasaPct').textContent = done + ' / 30 (' + pct + '%)';
+  document.getElementById('puasaBar').style.width = pct + '%';
   const st = document.getElementById('puasaStatus');
-  if (done === 0) { st.className='status-badge low'; st.textContent='Semangat berpuasa, insyaAllah!'; }
-  else if (pct < 50) { st.className='status-badge low'; st.textContent='Terus jaga puasamu, '+done+' hari terlampui!'; }
-  else if (pct < 100) { st.className='status-badge mid'; st.textContent='Luar biasa! '+done+' hari sudah terlampui!'; }
-  else { st.className='status-badge high'; st.textContent='Masyallah! 30 hari penuh, sempurna!'; }
+  if (done === 0) {
+    st.className = 'status-badge low';
+    st.textContent = 'Semangat berpuasa hari 1!';
+  } else if (pct < 50) {
+    st.className = 'status-badge low';
+    st.textContent = 'Terus jaga puasa, ' + done + '/30 hari! 💪';
+  } else if (pct < 100) {
+    st.className = 'status-badge mid';
+    st.textContent = 'Luar biasa! ' + done + '/30 hari tercapai! ✨';
+  } else {
+    st.className = 'status-badge high';
+    st.textContent = 'Masyallah! 30 hari puasa sempurna! 🌙';
+  }
   updateSummary();
 }
 
 function savePuasa(btn) {
-  save('upaya_all', puasaData);
-  save('upaya_today_' + dk, todayFasted);
-  flashSave(btn); showToast('✅ Data puasa tersimpan!');
+  save('puasa_all', puasaData);
+  flashSave(btn);
+  showToast('✅ Checklist puasa tersimpan!');
 }
 
 // ============================================================

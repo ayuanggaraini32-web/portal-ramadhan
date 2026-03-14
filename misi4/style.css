@@ -175,7 +175,7 @@ body {
     font-size: 1.25rem;
 }
 
-.prayer-item, .dzikir-item {
+.prayer-item, .dzikir-item, .puasa-item {
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
@@ -188,18 +188,18 @@ body {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.prayer-item:hover, .dzikir-item:hover {
+.prayer-item:hover, .dzikir-item:hover, .puasa-item:hover {
     background: rgba(255, 255, 255, 0.06);
     transform: scale(1.01);
 }
 
-.prayer-item.checked, .dzikir-item.checked {
+.prayer-item.checked, .dzikir-item.checked, .puasa-item.checked {
     background: rgba(212, 175, 55, 0.1);
     border-color: rgba(212, 175, 55, 0.3);
 }
 
 /* Custom Checkbox */
-.prayer-checkbox, .dzikir-checkbox {
+.prayer-checkbox, .dzikir-checkbox, .puasa-checkbox {
     width: 28px;
     height: 28px;
     border: 2.5px solid rgba(255, 255, 255, 0.2);
@@ -209,7 +209,7 @@ body {
     transition: all 0.2s ease;
 }
 
-.checked .prayer-checkbox, .checked .dzikir-checkbox {
+.checked .prayer-checkbox, .checked .dzikir-checkbox, .checked .puasa-checkbox {
     background: var(--secondary);
     border-color: var(--secondary);
     color: var(--primary);
@@ -318,12 +318,43 @@ body {
         text-align: center;
     }
     
-    .prayer-item {
+    .prayer-item, .dzikir-item, .puasa-item {
         padding: 1rem;
         gap: 0.75rem;
     }
     
     .prayer-time {
-        display: none; /* Sembunyikan waktu di mobile jika terlalu sempit */
+        display: none;
     }
+    
+    .puasa-arabic, .dzikir-arabic {
+        display: none;
+    }
+    
+    .today-badge {
+        font-size: 0.75rem;
+    }
+}
+
+.puasa-info {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.puasa-day {
+    font-size: 1.2rem;
+    color: var(--secondary);
+}
+
+.today-badge {
+    background: var(--secondary);
+    color: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
 }
