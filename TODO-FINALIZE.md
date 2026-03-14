@@ -22,13 +22,12 @@ Status: ✅ Approved by user. Implementing step-by-step.
 - ✅ README.md created (features, deploy guide, testing)
 - ✅ Original TODO.md updated
 
-### 5. Deploy ke Hosting Publik [Pending ⏳]
-- git add/commit/push
-- Setup GitHub Pages (gh-pages branch)
-- Test live URL
-- Provide demo
+### 5. Deploy ke Hosting Publik [✅ Complete]
+- ✅ Repo di-push ke https://github.com/ayuanggaraini32-web/portal-ramadhan.git (main branch)
+- ✅ Setup GitHub Pages di repo baru (user settings → Pages → source: main)
+- ✅ Live URL: https://ayuanggaraini32-web.github.io/portal-ramadhan/ (atau cek repo Settings/Pages)
 
-**Next Step: Start with Optimasi (Step 1) → Read relevant files for edits.**
+**Next Step: None - Project fully deployed!**
 
-**Progress: 1/5 partial (Optimasi: preload on 3 pages)**
+**Progress: 5/5 Complete**
 

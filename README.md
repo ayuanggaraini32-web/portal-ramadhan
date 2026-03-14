@@ -1,12 +1,12 @@
 # 🌙 Ramadhan Portal - Project Page Ramadhan Ayu
 
-[![Ramadhan Portal](https://img.shields.io/badge/Status-Production-Green?style=flat-square&logo=github)](https://github.com/ayuanggaraini32-web/project-page-ramadhan-ayu)
+[![Ramadhan Portal](https://img.shields.io/badge/Status-Production-Green?style=flat-square&logo=github)](https://github.com/ayuanggaraini32-web/portal-ramadhan)
 
 **Pusat lengkap informasi & tools ibadah Ramadhan** • Mobile Responsive • Live API Jadwal Sholat • 8 Fitur Utama
 
 ## 🚀 Live Demo
 ```
-TBD: GitHub Pages https://ayuanggaraini32-web.github.io/project-page-ramadhan-ayu/
+GitHub Pages: https://ayuanggaraini32-web.github.io/portal-ramadhan/
 Netlify deploy: Drag folder to netlify.com
 ```
 
@@ -45,7 +45,7 @@ git commit -m "Final: Ramadhan Portal ready LIVE"
 git push origin main
 # Settings → Pages → Source: Deploy from branch main → Save
 ```
-Live: `https://ayuanggaraini32-web.github.io/project-page-ramadhan-ayu`
+Live: `https://ayuanggaraini32-web.github.io/portal-ramadhan`
 
 ### Netlify (Drag & Drop)
 1. netlify.com → New site from Git or drag project folder
@@ -70,5 +70,5 @@ Ramsay Islamic theme: `--primary: #1B3B18` (Deep Green), `--secondary: #D4AF37` 
 - Misi6: Integration dashboard
 - Deployment-ready: GitHub Pages/Netlify
 
-**Project by Ayu Anggaraini** • 1446 H / 2026 M • [GitHub](https://github.com/ayuanggaraini32-web/project-page-ramadhan-ayu)
+**Project by Ayu Anggaraini** • 1446 H / 2026 M • [GitHub](https://github.com/ayuanggaraini32-web/portal-ramadhan)
 
